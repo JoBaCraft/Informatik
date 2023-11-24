@@ -9,7 +9,7 @@ Schulden = Schulden - Extrarükzahlungen
 jahr = 0
 while Schulden > 0:
     Schulden = (Schulden + zins)  - (Tilgung * 12)
-    jahr = jahr + 1
+    jahr += 1
 
 # Ausgabe
 print("Du brauchst ", jahr,"Jahre um deine Schulden zu Tilgen.") 
