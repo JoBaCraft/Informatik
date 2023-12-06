@@ -31,7 +31,7 @@ while AnzahlSchiffe > VorhandeneSchiffe:
     if feld[SchiffZeile][SchiffSpalte] != "S":
         feld[SchiffZeile][SchiffSpalte] = "S"
         VorhandeneSchiffe += 1
-    
+
 print("Computersicht:")
 zeigeComputersicht(feld)
     
