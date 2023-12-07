@@ -1,28 +1,28 @@
 from testModulLeon import zeigeSpielersicht, zeigeComputersicht
 from random import randint
 
-#Größe des Feldes
+ # Größe des Feldes
 gewuenschteFeldGroesse = int(input("Feldgroesse: "))
 FeldGroesse = 0
-#for FeldGroesse in range(gewuenschteFeldGroesse):
+for FeldGroesse in range(gewuenschteFeldGroesse):
 
-#while FeldGroesse < gewuenschteFeldGroesse:
-    #ZeilenGroesse = 0
-   # while ZeilenGroesse < gewuenschteFeldGroesse:
-       # zeile
+    while FeldGroesse < gewuenschteFeldGroesse:
+        ZeilenGroesse = 0
+        while ZeilenGroesse < gewuenschteFeldGroesse:
+            idk = 0
     
 
 #Aufstellen der einzelnen Reihen
-zeile1 = ['~','~','~','~','~','~','~','~'," "]
-zeile2 = ['~','~','~','~','~','~','~','~'," "]
-zeile3 = ['~','~','~','~','~','~','~','~'," "]
-zeile4 = ['~','~','~','~','~','~','~','~'," "]
-zeile5 = ['~','~','~','~','~','~','~','~'," "]
-zeile6 = ['~','~','~','~','~','~','~','~'," "]
-zeile7 = ['~','~','~','~','~','~','~','~'," "]
-zeile8 = ['~','~','~','~','~','~','~','~'," "]
-zeile9 = ['~','~','~','~','~','~','~','~'," "]
-zeile10 = ['~','~','~','~','~','~','~','~'," "]
+zeile1 = ['~','~','~','~','~','~','~','~','~']
+zeile2 = ['~','~','~','~','~','~','~','~','~']
+zeile3 = ['~','~','~','~','~','~','~','~','~']
+zeile4 = ['~','~','~','~','~','~','~','~','~']
+zeile5 = ['~','~','~','~','~','~','~','~','~']
+zeile6 = ['~','~','~','~','~','~','~','~','~']
+zeile7 = ['~','~','~','~','~','~','~','~','~']
+zeile8 = ['~','~','~','~','~','~','~','~','~']
+zeile9 = ['~','~','~','~','~','~','~','~','~']
+zeile10 = ['~','~','~','~','~','~','~','~','~']
 
 #Zusammenfuegen der Reihen zu einem Feld
 feld = [zeile1, zeile2, zeile3, zeile4, zeile5, zeile6, zeile7, zeile8, zeile9]
