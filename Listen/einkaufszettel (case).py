@@ -56,11 +56,11 @@ while antwort == "ja":
             gesamtpreis = 0
             for i, element in enumerate(einkaufszettel):
                 gesamtpreis += element[0] * element[2]
-            print('Dein Einkaufszettel kostet', f'{gesamtpreis: .2f}', 'Euro.')
+            print(f'Dein Einkaufszettel kostet {gesamtpreis: .2f} Euro.')
         
     print('')            
     print(einkaufszettel)
     print('')
     antwort = input('willst du noch mehr aendern? (ja/nein):  ')
 
-print('Dein Einkaufszettel ist:', einkaufszettel)
+print(f'Dein Einkaufszettel ist: {einkaufszettel}')
