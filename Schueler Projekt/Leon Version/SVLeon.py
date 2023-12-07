@@ -36,9 +36,9 @@ while AnzahlSchiffe > VorhandeneSchiffe:
     if feld[SchiffZeile][SchiffSpalte] != "S":
         if feld[SchiffZeile-1][SchiffSpalte] != "S": #or feld[SchiffZeile-1] >= 7:
            if feld[SchiffZeile-1][SchiffSpalte-1] != "S": #or feld[SchiffZeile-1] >= 7 or feld[SchiffSpalte-1] >= 7:
-                if feld[SchiffZeile][SchiffSpalte-1] != "S" or feld[SchiffSpalte-1] >= 7:
-                    if feld[SchiffZeile+1][SchiffSpalte-1] != "S" or feld[SchiffZeile+1] >=7 or feld[SchiffSpalte-1] >= 7:
-                        if feld[SchiffZeile+1][SchiffSpalte] != "S" or feld[SchiffZeile+1] >=7:
+                if feld[SchiffZeile][SchiffSpalte-1] != "S" or feld[SchiffSpalte-1] >= 7: # type: ignore
+                    if feld[SchiffZeile+1][SchiffSpalte-1] != "S" or feld[SchiffZeile+1] >=7 or feld[SchiffSpalte-1] >= 7: # type: ignore
+                        if feld[SchiffZeile+1][SchiffSpalte] != "S" or feld[SchiffZeile+1] >=7:  # type: ignore
                             if feld[SchiffZeile+1][SchiffSpalte+1] != "S":# or feld[SchiffZeile+1] >=7 or feld[SchiffSpalte+1] >= 7:
                                 if feld[SchiffZeile][SchiffSpalte+1] != "S": #or feld[SchiffSpalte+1] >= 7:
                                     if feld[SchiffZeile-1][SchiffSpalte+1] != "S": #orfeld[SchiffZeile-1] >=7 or feld[SchiffSpalte+1] >= 7:
