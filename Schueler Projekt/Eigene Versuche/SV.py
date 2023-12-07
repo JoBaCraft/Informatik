@@ -33,14 +33,14 @@ while AnzahlSchiffe > VorhandeneSchiffe:
         VorhandeneSchiffe += 1
 
         
-        if feld[SchiffZeile-1][SchiffSpalte] != "S" or feld[SchiffZeile-1][SchiffSpalte] >= 8:
-           if feld[SchiffZeile-1][SchiffSpalte-1] != "S" or feld[SchiffZeile-1][SchiffSpalte-1] >= 8:
-                if feld[SchiffZeile][SchiffSpalte-1] != "S" or feld[SchiffZeile][SchiffSpalte-1] >= 8:
-                    if feld[SchiffZeile+1][SchiffSpalte-1] != "S" or feld[SchiffZeile+1][SchiffSpalte-1] >= 8:
-                        if feld[SchiffZeile+1][SchiffSpalte] != "S" or feld[SchiffZeile+1][SchiffSpalte] >= 8:
-                            if feld[SchiffZeile+1][SchiffSpalte+1] != "S" or feld[SchiffZeile+1][SchiffSpalte+1] >= 8:
-                                if feld[SchiffZeile][SchiffSpalte+1] != "S" or feld[SchiffZeile][SchiffSpalte+1] >= 8:
-                                    if feld[SchiffZeile-1][SchiffSpalte+1] != "S" or feld[SchiffZeile-1][SchiffSpalte+1] >= 8:
+        if feld[SchiffZeile-1][SchiffSpalte] != "S" or feld[SchiffZeile-1][SchiffSpalte] >= 8:      # type: ignore
+           if feld[SchiffZeile-1][SchiffSpalte-1] != "S" or feld[SchiffZeile-1][SchiffSpalte-1] >= 8:    # type: ignore
+                if feld[SchiffZeile][SchiffSpalte-1] != "S" or feld[SchiffZeile][SchiffSpalte-1] >= 8:    # type: ignore
+                    if feld[SchiffZeile+1][SchiffSpalte-1] != "S" or feld[SchiffZeile+1][SchiffSpalte-1] >= 8:    # type: ignore
+                        if feld[SchiffZeile+1][SchiffSpalte] != "S" or feld[SchiffZeile+1][SchiffSpalte] >= 8:    # type: ignore
+                            if feld[SchiffZeile+1][SchiffSpalte+1] != "S" or feld[SchiffZeile+1][SchiffSpalte+1] >= 8:    # type: ignore
+                                if feld[SchiffZeile][SchiffSpalte+1] != "S" or feld[SchiffZeile][SchiffSpalte+1] >= 8:    # type: ignore
+                                    if feld[SchiffZeile-1][SchiffSpalte+1] != "S" or feld[SchiffZeile-1][SchiffSpalte+1] >= 8:       # type: ignore
                                         feld[SchiffZeile][SchiffSpalte] = 'A'
 
 
