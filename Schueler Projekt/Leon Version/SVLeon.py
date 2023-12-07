@@ -1,6 +1,17 @@
 from testModulLeon import zeigeSpielersicht, zeigeComputersicht
 from random import randint
 
+#Größe des Feldes
+gewuenschteFeldGroesse = int(input("Feldgroesse: "))
+FeldGroesse = 0
+#for FeldGroesse in range(gewuenschteFeldGroesse):
+
+#while FeldGroesse < gewuenschteFeldGroesse:
+    #ZeilenGroesse = 0
+   # while ZeilenGroesse < gewuenschteFeldGroesse:
+       # zeile
+    
+
 #Aufstellen der einzelnen Reihen
 zeile1 = ['~','~','~','~','~','~','~','~'," "]
 zeile2 = ['~','~','~','~','~','~','~','~'," "]
