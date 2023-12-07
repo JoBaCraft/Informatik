@@ -6,9 +6,9 @@ gewuenschteFeldGroesse = int(input("Feldgroesse: "))
 FeldGroesse = 0
 for FeldGroesse in range(gewuenschteFeldGroesse):
 
-    while FeldGroesse < gewuenschteFeldGroesse:
+    while FeldGroesse < gewuenschteFeldGroesse:         # stuck in der Schleife forever
         ZeilenGroesse = 0
-        while ZeilenGroesse < gewuenschteFeldGroesse:
+        while ZeilenGroesse < gewuenschteFeldGroesse:   # hier auch
             idk = 0
     
 
