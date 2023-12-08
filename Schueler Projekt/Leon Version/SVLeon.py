@@ -4,13 +4,19 @@ from random import randint
  # Größe des Feldes
 gewuenschteFeldGroesse = int(input("Feldgroesse: "))
 FeldGroesse = 0
+Zeilengroesse = 0
+zeile = []
+
+while ZeilenGroesse < gewuenschteFeldGroesse: 
+    zeile.append("~") # hier auch
+    ZeilenGroesse += 1
+zeile.append(" ")
+ 
 for FeldGroesse in range(gewuenschteFeldGroesse):
 
     while FeldGroesse < gewuenschteFeldGroesse:         # stuck in der Schleife forever
-        ZeilenGroesse = 0
-        while ZeilenGroesse < gewuenschteFeldGroesse:   # hier auch
-            idk = 0
-    
+         print(zeile)
+         Feldgroesse += 1
 
 #Aufstellen der einzelnen Reihen
 zeile1 = ['~','~','~','~','~','~','~','~','~']
