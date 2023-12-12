@@ -29,3 +29,9 @@ def zeigeComputersicht(feld):
         i = i + 1
         print(zeilentext)    
     print('') #Leerzeile nach dem Feld 
+    
+def spielfeld_erstellen():
+    zeile = []
+    feldgroesse = int(input('Gib die gewuenschte Feldgroesse ein: '))
+    for i in range(feldgroesse):
+        zeile.append('~')
