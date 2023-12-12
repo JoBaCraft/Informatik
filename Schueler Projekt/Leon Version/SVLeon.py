@@ -44,18 +44,18 @@ zeigeComputersicht(feld)
 #Zufallsverteilung der Schiffchen
 VorhandeneSchiffe = 0
 AnzahlSFelder = 0
-AnzahlSchiffe = 1#int(input("Anzahl der Einer-Schiffchen: "))
+AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
 while AnzahlSchiffe > VorhandeneSchiffe:
-    SchiffZeile = 7#randint(0, 7)
-    SchiffSpalte = 7#randint(0, 7)
+    SchiffZeile = randint(0, 7)
+    SchiffSpalte = randint(0, 7)
     print(SchiffSpalte)
     print(SchiffZeile)
     if feld[SchiffZeile][SchiffSpalte] != "S":
         if feld[SchiffZeile-1][SchiffSpalte] != "S": #or feld[SchiffZeile-1] >= 7:
            if feld[SchiffZeile-1][SchiffSpalte-1] != "S": #or feld[SchiffZeile-1] >= 7 or feld[SchiffSpalte-1] >= 7:
-                if feld[SchiffZeile][SchiffSpalte-1] != "S" or feld[SchiffSpalte-1] >= 7: # type: ignore
-                    if feld[SchiffZeile+1][SchiffSpalte-1] != "S" or feld[SchiffZeile+1] >=7 or feld[SchiffSpalte-1] >= 7: # type: ignore
-                        if feld[SchiffZeile+1][SchiffSpalte] != "S" or feld[SchiffZeile+1] >=7:  # type: ignore
+                if feld[SchiffZeile][SchiffSpalte-1] != "S" or feld[SchiffSpalte-1] >= 7:                                                                               # type: ignore
+                    if feld[SchiffZeile+1][SchiffSpalte-1] != "S" or feld[SchiffZeile+1] >=7 or feld[SchiffSpalte-1] >= 7:                                              # type: ignore
+                        if feld[SchiffZeile+1][SchiffSpalte] != "S" or feld[SchiffZeile+1] >=7:                                                                         # type: ignore
                             if feld[SchiffZeile+1][SchiffSpalte+1] != "S":# or feld[SchiffZeile+1] >=7 or feld[SchiffSpalte+1] >= 7:
                                 if feld[SchiffZeile][SchiffSpalte+1] != "S": #or feld[SchiffSpalte+1] >= 7:
                                     if feld[SchiffZeile-1][SchiffSpalte+1] != "S": #orfeld[SchiffZeile-1] >=7 or feld[SchiffSpalte+1] >= 7:
@@ -80,9 +80,6 @@ zeigeComputersicht(feld)
     
 #Beschuss
 
-#Achtung Fehler
-#for i, textstelle in sum(feld, []) == "S":
-#Endet hier
 getroffenenFelder = 0
 GebrauchteSchuesse = 0
 while getroffenenFelder < AnzahlSFelder:
@@ -91,6 +88,9 @@ while getroffenenFelder < AnzahlSFelder:
 
     if feld[zeile - 1][spalte - 1] == "S":
         feld[zeile - 1][spalte - 1] = "T"
+        print('')
+        print('Treffer')
+        print('')
         getroffenenFelder += 1
         GebrauchteSchuesse += 1
     
