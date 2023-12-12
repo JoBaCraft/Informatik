@@ -100,4 +100,4 @@ while getroffenenFelder < AnzahlSFelder:
     
     print("Spielersicht:")
     zeigeSpielersicht(feld)
-    print(GebrauchteSchuesse)
+    print(f'Du hast {GebrauchteSchuesse} Schuesse gebraucht.')
