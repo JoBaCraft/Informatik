@@ -263,7 +263,7 @@ print(f"Aufgrund der Zufallsverteilung wurden {Anzahl2erSchiffe} 2er- und {Anzah
 #Beschuss
 getroffenenFelder = 0
 GebrauchteSchuesse = 0
-while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder/2:
+while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
     SchussZeile = int(input("Zeile: "))
 
     #whileschleife sorgt dafür, dass man keine zu grosse Zahl eingeben kann und so ein Error verhindert wird
