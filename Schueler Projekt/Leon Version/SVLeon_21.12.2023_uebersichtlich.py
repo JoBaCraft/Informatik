@@ -58,7 +58,7 @@ def zeigeComputersicht(feld):
         zeilentext = str(i+1) + ' '
         while j < gewuenschteFeldGroesse:
             if feld[i][j] == 'A':
-                zeilentext = zeilentext + 'A '#######
+                zeilentext = zeilentext + '~ '#######
             else:
                 zeilentext = zeilentext + feld[i][j] + ' '
             j = j + 1
@@ -181,10 +181,11 @@ Ichgebauf = 0
     #Anzahl2erSchiffe = int(input("Anzahl der Zweier-Schiffchen: "))
     
 while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
-    SchiffZeile = 0#randint(0, FeldGroesse-1)
-    SchiffSpalte = randint(0, FeldGroesse-1)
-    print(SchiffZeile) #Zur Überpruefung bei Errors
-    print(SchiffSpalte) #Zur Überpruefung bei Errors
+    SchiffZeile = randint(0, FeldGroesse-1)
+    SchiffSpalte = randint(0, FeldGroesse-2)
+    #print(SchiffZeile)  #Zur Überpruefung bei Errors
+    #print(SchiffSpalte) #Zur Überpruefung bei Errors
+    #print('')           #Zur Überpruefung bei Errors
     
     #horizontal oder vertikal
     hoderv = randint(0, 1)
@@ -256,23 +257,19 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
 
 print("Computersicht:")
 zeigeComputersicht(feld)
-print("Aufgrund der Zufallsverteilung wurden ",AnzahlSFelder, "geplaced :).")
+print(f"Aufgrund der Zufallsverteilung wurden {Anzahl2erSchiffe} 2er- und {AnzahlSFelder} 1er-Schiffe geplaced :).")
 
-
-#
 
 #Beschuss
 getroffenenFelder = 0
 GebrauchteSchuesse = 0
-while getroffenenFelder < AnzahlSFelder:
+while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder/2:
     SchussZeile = int(input("Zeile: "))
-    print('')
 
     #whileschleife sorgt dafür, dass man keine zu grosse Zahl eingeben kann und so ein Error verhindert wird
     while SchussZeile > gewuenschteFeldGroesse:
         print(f"Deine eingegebene Zahl ist zu gross. Die Feldgroesse betraegt nur {gewuenschteFeldGroesse} Felder")
         SchussZeile = int(input("Zeile: "))
-        print('')
         
     #whileschleife sorgt dafür, dass man keine zu grosse Zahl eingeben kann und so ein Error verhindert wird
     SchussSpalte = int(input("Spalte: "))
