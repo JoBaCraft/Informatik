@@ -263,20 +263,44 @@ print(f"Aufgrund der Zufallsverteilung wurden {Anzahl2erSchiffe} 2er- und {Anzah
 #Beschuss
 getroffenenFelder = 0
 GebrauchteSchuesse = 0
+SchussZeile = False
+SchussSpalte = False
+
 while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
-    SchussZeile = int(input("Zeile: "))
+    while SchussZeile == False:
+        try:
+            SchussZeile = int(input("Zeile: "))
+        except ValueError:
+            print('Bitte nur ganze Zahlen eingeben!')
 
     #whileschleife sorgt dafür, dass man keine zu grosse Zahl eingeben kann und so ein Error verhindert wird
     while SchussZeile > gewuenschteFeldGroesse:
         print(f"Deine eingegebene Zahl ist zu gross. Die Feldgroesse betraegt nur {gewuenschteFeldGroesse} Felder")
-        SchussZeile = int(input("Zeile: "))
-        
+        while SchussZeile == False:
+            try:
+                SchussZeile = int(input("Zeile: "))
+            except ValueError:
+                print('Bitte nur ganze Zahlen eingeben!')
+            finally:
+                SchussSpalte = int(input("Spalte: "))
+
     #whileschleife sorgt dafür, dass man keine zu grosse Zahl eingeben kann und so ein Error verhindert wird
-    SchussSpalte = int(input("Spalte: "))
+    while SchussSpalte == False:
+        try:
+            SchussSpalte = int(input("Spalte: "))
+        except ValueError:
+            print('Bitte nur ganze Zahlen eingeben!')
     print('')
+
     while SchussSpalte > gewuenschteFeldGroesse:
         print(f"Deine eingegebene Zahl ist zu gross. Die Feldgroesse betraegt nur {gewuenschteFeldGroesse} Felder")
-        SchussSpalte = int(input("Spalte: "))
+        while SchussSpalte == False:
+            try:
+                SchussSpalte = int(input("Spalte: "))
+            except ValueError:
+                 print('Bitte nur ganze Zahlen eingeben!')
+            finally: 
+                SchussSpalte = int(input("Spalte: "))
         print('')
 
     #Treffer als "T" markieren
@@ -285,13 +309,36 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
         getroffenenFelder += 1
         GebrauchteSchuesse += 1
         print('Treffer!!')
-    
+
     #Fehlschüsse als solche markieren
     elif feld[SchussZeile - 1][SchussSpalte - 1] == "~" or feld[SchussZeile - 1][SchussSpalte - 1] == "A":
         feld[SchussZeile - 1][SchussSpalte - 1] = "X"
         GebrauchteSchuesse += 1
         print('Leider daneben. Versuch es nocheinmal.')
-    
+        
+    SchussZeile = False
+    SchussSpalte = False
+
     print("Spielersicht:")
     zeigeSpielersicht(feld)
-print(f"Super, du hast alle Schiffe zertört und hast dafür {GebrauchteSchuesse} Schüsse gebraucht")
+
+
+
+#Statistik des Spiels
+def SpielStatistik():
+    Trefferquote = getroffenenFelder / GebrauchteSchuesse
+    Schiffe = AnzahlSchiffe + Anzahl2erSchiffe
+    Feld = FeldGroesse
+    
+    print(f'''
+================================================
+| SpielStatistik:
+|     
+| Trefferquote:             {Trefferquote: .2f}
+| Platzierte Schiffe:       {Schiffe}
+| Gewaehlte Feldgroesse:    {Feld}
+| Gebrauchte Schuesse:      {GebrauchteSchuesse}
+================================================
+''')
+
+SpielStatistik()
