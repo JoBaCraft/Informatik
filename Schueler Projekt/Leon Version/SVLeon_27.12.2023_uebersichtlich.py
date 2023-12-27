@@ -5,6 +5,7 @@ gewuenschteFeldGroesse = False
 while gewuenschteFeldGroesse == False:
     try:
         gewuenschteFeldGroesse = int(input("Feldgroesse: "))
+        gewuenschteFeldGroesse = False
     except ValueError:
         print('Bitte nur ganze Zahlen eingeben!')
 FeldGroesse = 0
