@@ -257,8 +257,8 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
 
 print("Computersicht:")
 zeigeComputersicht(feld)
-print(f"Aufgrund der Zufallsverteilung wurden {Anzahl2erSchiffe} 2er- und {AnzahlSFelder} 1er-Schiffe geplaced :).")
 
+print(f"Aufgrund der Zufallsverteilung wurden {Anzahl2erSchiffe} 2er- und {AnzahlSFelder} 1er-Schiffe geplaced :).")
 
 #Beschuss
 getroffenenFelder = 0
@@ -275,14 +275,13 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
 
     #whileschleife sorgt dafür, dass man keine zu grosse Zahl eingeben kann und so ein Error verhindert wird
     while SchussZeile > gewuenschteFeldGroesse:
-        print(f"Deine eingegebene Zahl ist zu gross. Die Feldgroesse betraegt nur {gewuenschteFeldGroesse} Felder")
+        print(f"Deine eingegebene Zahl ist zu gross. Die Feldgroesse betraegt nur {gewuenschteFeldGroesse} Felder.")
+        SchussZeile = False
         while SchussZeile == False:
             try:
                 SchussZeile = int(input("Zeile: "))
             except ValueError:
                 print('Bitte nur ganze Zahlen eingeben!')
-            finally:
-                SchussSpalte = int(input("Spalte: "))
 
     #whileschleife sorgt dafür, dass man keine zu grosse Zahl eingeben kann und so ein Error verhindert wird
     while SchussSpalte == False:
@@ -293,14 +292,13 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
     print('')
 
     while SchussSpalte > gewuenschteFeldGroesse:
-        print(f"Deine eingegebene Zahl ist zu gross. Die Feldgroesse betraegt nur {gewuenschteFeldGroesse} Felder")
+        print(f"Deine eingegebene Zahl ist zu gross. Die Feldgroesse betraegt nur {gewuenschteFeldGroesse} Felder.")
+        SchussSpalte = False
         while SchussSpalte == False:
             try:
                 SchussSpalte = int(input("Spalte: "))
             except ValueError:
                  print('Bitte nur ganze Zahlen eingeben!')
-            finally: 
-                SchussSpalte = int(input("Spalte: "))
         print('')
 
     #Treffer als "T" markieren
@@ -332,9 +330,9 @@ def SpielStatistik():
     
     print(f'''
 ================================================
-| SpielStatistik:
+| Spiel-Statistik:
 |     
-| Trefferquote:             {Trefferquote: .2f}
+| Trefferquote:            {Trefferquote: .2f}
 | Platzierte Schiffe:       {Schiffe}
 | Gewaehlte Feldgroesse:    {Feld}
 | Gebrauchte Schuesse:      {GebrauchteSchuesse}
