@@ -1,12 +1,16 @@
 from random import randint
 
  # Groesse des Feldes
-gewuenschteFeldGroesse = int(input("Feldgroesse: "))
+gewuenschteFeldGroesse = False
+while gewuenschteFeldGroesse == False:
+    try:
+        gewuenschteFeldGroesse = int(input("Feldgroesse: "))
+    except ValueError:
+        print('Bitte nur ganze Zahlen eingeben!')
 FeldGroesse = 0
 ZeilenGroesse = 0
 zeile = []
 feld = []
-
 
 
 #Das Zeug ausm Testmodul
