@@ -95,13 +95,8 @@ zeigeComputersicht(feld)
 # Zufallsverteilung der 1er-Schiffchen
 Vorhandene1erSchiffe = 0
 AnzahlSFelder = 0
-AnzahlSchiffe = False
-while AnzahlSchiffe is False:
-    try:
-        AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
-    except ValueError:
-        print('Bitte nur ganze Zahlen eingeben!')
-    
+AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
+
 # Hilfsvariablen für DIE FORMEL
 f = float(FeldGroesse / 2)
 i = int(f)
@@ -109,15 +104,9 @@ i = int(f)
 Ichgebauf = 0
 while AnzahlSchiffe > f ** 2:
     print("Das sind zuviele Schiffe, try again :( ")
-    # print(AnzahlSchiffe)
-    AnzahlSchiffe = False
-    while AnzahlSchiffe is False:
-        try: 
-            AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
-        except ValueError:
-            print('Bitte nur ganze Zahlen eingeben!')
-        
-        
+    print(AnzahlSchiffe)
+    AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
+
 while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
     SchiffZeile = randint(0, FeldGroesse - 1)
     SchiffSpalte = randint(0, FeldGroesse - 1)
@@ -175,16 +164,17 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
 # Zufallsverteilung der 2er-Schiffchen
 Vorhandene2erSchiffe = 0
 Anzahl2erSFelder = 0
-Horizontale2erSchiffe = 0
-Vertikale2erSchiffe = 0
-Anzahl2erSchiffe = False
-while Anzahl2erSchiffe is False:
-    try:
-        Anzahl2erSchiffe = int(input("Anzahl der 2er-Schiffchen: "))
-    except ValueError:
-        print('Bitte nur ganze Zahlen eingeben!')
-        
+Anzahl2erSchiffe = int(input("Anzahl der 2er-Schiffchen: "))
+
+# Hilfsvariablen für DIE FORMEL
+# f = float(FeldGroesse/2)
+# i = int(f)
+# DIE FORMEL
 Ichgebauf = 0
+# while Anzahl2erSchiffe > f**2:
+# print("Das sind zu viele Schiffe, try again :( ")
+# print(Anzahl2erSchiffe)
+# Anzahl2erSchiffe = int(input("Anzahl der Zweier-Schiffchen: "))
 
 while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
     SchiffZeile = randint(0, FeldGroesse - 1)
@@ -195,8 +185,6 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
 
     # horizontal oder vertikal
     hoderv = randint(0, 1)
-    
-    
     
     # 1 ist vertikal
     if hoderv == 1:
@@ -230,9 +218,6 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                                                         
                                                         Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
-                                                        Vertikale2erSchiffe += 1
-                                                        Ichgebauf =+ 1
-                                                        
         # Die oberste Zeile
         if SchiffZeile == 1 and SchiffSpalte < FeldGroesse and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             feld[SchiffZeile][SchiffSpalte] = "S"
@@ -251,7 +236,6 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                 
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-            Vertikale2erSchiffe += 1
             Ichgebauf += 1
 
         # Die unterste Zeile
@@ -266,13 +250,11 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
             feld[SchiffZeile][SchiffSpalte + 2] = "A"
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-            Vertikale2erSchiffe += 1
             Ichgebauf += 1
-            
-            
+
     
     # 0 ist horizontal
-    if hoderv == 0:
+    elif hoderv == 0:
         if SchiffSpalte != 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
@@ -303,9 +285,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                                                         feld[SchiffZeile][SchiffSpalte + 1] = "S"
                                                         Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
-                                                        Horizontale2erSchiffe += 1
                                                         Ichgebauf += 1
-                                                        
         # Die oberste Zeile
         if SchiffZeile == 0 and SchiffSpalte < FeldGroesse and feld[SchiffZeile][SchiffSpalte] != "S" and \
                 feld[SchiffZeile][SchiffSpalte] != "A":
@@ -322,7 +302,6 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                 feld[SchiffZeile][SchiffSpalte - 1] = "A"
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-            Horizontale2erSchiffe += 1
             Ichgebauf += 1
 
         # Die unterste Zeile
@@ -337,16 +316,12 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
             feld[SchiffZeile][SchiffSpalte + 2] = "A"
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-            Horizontale2erSchiffe += 1
             Ichgebauf += 1
-    Ichgebauf += 1
-
-
 
 print("Computersicht:")
 zeigeComputersicht(feld)
 
-print(f"Aufgrund der Zufallsverteilung wurden {Vorhandene1erSchiffe} 1er- und {Vorhandene2erSchiffe} 2er-Schiffe geplaced :).")
+print(f"Aufgrund der Zufallsverteilung wurden {Anzahl2erSchiffe} 2er- und {AnzahlSFelder} 1er-Schiffe geplaced :).")
 
 # Beschuss
 getroffenenFelder = 0
@@ -375,9 +350,9 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
     while SchussSpalte is False:
         try:
             SchussSpalte = int(input("Spalte: "))
-            print('')
         except ValueError:
             print('Bitte nur ganze Zahlen eingeben!')
+    print('')
 
     while SchussSpalte > gewuenschteFeldGroesse:
         print(f"Deine eingegebene Zahl ist zu gross. Die Feldgroesse betraegt nur {gewuenschteFeldGroesse} Felder.")
@@ -385,9 +360,9 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
         while SchussSpalte is False:
             try:
                 SchussSpalte = int(input("Spalte: "))
-                print('')
             except ValueError:
                 print('Bitte nur ganze Zahlen eingeben!')
+        print('')
 
     # Treffer als "T" markieren
     if feld[SchussZeile - 1][SchussSpalte - 1] == "S":
@@ -411,17 +386,16 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
 
 # Statistik des Spiels
 def SpielStatistik():
-    Trefferquote = (getroffenenFelder / GebrauchteSchuesse) * 100
-    Feld = FeldGroesse 
+    Trefferquote = getroffenenFelder / GebrauchteSchuesse
+    Schiffe = AnzahlSchiffe + Anzahl2erSchiffe
+    Feld = FeldGroesse
 
     print(f'''
 ================================================
 | Spiel-Statistik:
 |     
-| Trefferquote:            {Trefferquote: .2f}%
-| Platzierte 1er-Schiffe:   {AnzahlSchiffe}
-| Horizontale 2er-Schiffe:  {Horizontale2erSchiffe}
-| Vertikale 2er-Schiffe:    {Vertikale2erSchiffe}
+| Trefferquote:            {Trefferquote: .2f}
+| Platzierte Schiffe:       {Schiffe}
 | Gewaehlte Feldgroesse:    {Feld}
 | Gebrauchte Schuesse:      {GebrauchteSchuesse}
 ================================================
