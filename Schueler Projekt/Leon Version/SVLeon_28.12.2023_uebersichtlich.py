@@ -192,11 +192,6 @@ Ichgebauf = 0
 # Anzahl2erSchiffe = int(input("Anzahl der Zweier-Schiffchen: "))
 
 while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
-    SchiffZeile = randint(0, FeldGroesse - 1)
-    SchiffSpalte = randint(0, FeldGroesse - 2)
-    #    print(SchiffZeile)  #Zur Überpruefung bei Errors
-    #    print(SchiffSpalte) #Zur Überprüfung bei Errors
-    #    print('')           #Zur Überpruefung bei Errors
 
     # horizontal oder vertikal
     hoderv = randint(0, 1)
@@ -204,6 +199,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
     # 1 ist vertikal
     if hoderv == 1:
         SchiffZeile = randint(1, FeldGroesse - 1)
+        SchiffSpalte = randint(0, FeldGroesse - 1)
         if feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
@@ -266,10 +262,11 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
             Ichgebauf += 1
-
     
     # 0 ist horizontal
     elif hoderv == 0:
+        SchiffZeile = randint(0, FeldGroesse - 1)
+        SchiffSpalte = randint(0, FeldGroesse - 2)
         if SchiffSpalte != 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
@@ -332,11 +329,12 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
             Ichgebauf += 1
-
+    Ichgebauf += 1
+    
 print("Computersicht:")
 zeigeComputersicht(feld)
 
-print(f"Aufgrund der Zufallsverteilung wurden {Anzahl2erSchiffe} 2er- und {AnzahlSFelder} 1er-Schiffe geplaced :).")
+print(f"Aufgrund der Zufallsverteilung wurden {Vorhandene2erSchiffe} 2er- und {Vorhandene1erSchiffe} 1er-Schiffe geplaced.")
 
 # Beschuss
 getroffenenFelder = 0
