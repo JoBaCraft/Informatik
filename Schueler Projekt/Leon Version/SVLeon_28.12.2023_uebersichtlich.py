@@ -382,7 +382,16 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
         feld[SchussZeile - 1][SchussSpalte - 1] = "T"
         getroffenenFelder += 1
         GebrauchteSchuesse += 1
-        print('Treffer!!')
+        if feld[SchiffZeile + 1][SchiffSpalte] == "T":
+            print("Treffer versenkt! ")
+        elif feld[SchiffZeile - 1][SchiffSpalte] == "T":
+            print("Treffer versenkt! ")
+        elif feld[SchiffZeile][SchiffSpalte + 1] == "T":
+            print("Treffer versenkt! ")
+        elif feld[SchiffZeile][SchiffSpalte -1] == "T":
+            print("Treffer versenkt! ")
+        else:
+            ('Treffer!!')
 
     # Fehlschüsse als solche markieren
     elif feld[SchussZeile - 1][SchussSpalte - 1] == "~" or feld[SchussZeile - 1][SchussSpalte - 1] == "A":
