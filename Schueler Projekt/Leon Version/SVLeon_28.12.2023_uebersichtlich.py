@@ -185,8 +185,76 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
 
     # horizontal oder vertikal
     hoderv = randint(0, 1)
+    
+    # 1 ist vertikal
+    if hoderv == 1:
+        SchiffZeile = randint(1, FeldGroesse - 1)
+        if feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+            if feld[SchiffZeile - 1][SchiffSpalte] != "S":
+                if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
+                    if feld[SchiffZeile][SchiffSpalte - 1] != "S":
+                        if feld[SchiffZeile + 1][SchiffSpalte - 1] != "S":
+                            if feld[SchiffZeile + 1][SchiffSpalte] != "S":
+                                if feld[SchiffZeile + 1][SchiffSpalte + 1] != "S":
+                                    if feld[SchiffZeile][SchiffSpalte + 1] != "S":
+                                        if feld[SchiffZeile - 1][SchiffSpalte + 1] != "S":
+                                            if feld[SchiffZeile - 2][SchiffSpalte - 1] != "S":
+                                                if feld[SchiffZeile - 2][SchiffSpalte] != "S":
+                                                    if feld[SchiffZeile - 2][SchiffSpalte + 1] != "S":
+                                            
+                                                        # Abstandsfelder
+                                                        feld[SchiffZeile][SchiffSpalte] = "A"
+                                                        feld[SchiffZeile - 1][SchiffSpalte] = "A"
+                                                        feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+                                                        feld[SchiffZeile][SchiffSpalte - 1] = "A"
+                                                        feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
+                                                        feld[SchiffZeile + 1][SchiffSpalte] = "A"
+                                                        feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
+                                                        feld[SchiffZeile][SchiffSpalte + 1] = "A"
+                                                        feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+                
+                                                        feld[SchiffZeile][SchiffSpalte] = "S"
+                                                        feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+                                                        
+                                                        AnzahlSFelder += 2
+                                                        Vorhandene2erSchiffe += 1
+        # Die oberste Zeile
+        if SchiffZeile == 1 and SchiffSpalte < FeldGroesse and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+            feld[SchiffZeile][SchiffSpalte] = "S"
+            feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+
+            feld[SchiffZeile + 1][SchiffSpalte] = "A"
+            feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
+            feld[SchiffZeile][SchiffSpalte + 1] = "A"
+            
+
+            if SchiffSpalte >= 1:
+                feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+                feld[SchiffZeile][SchiffSpalte - 1] = "A"
+                feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+                
+            Anzahl2erSFelder += 2
+            Vorhandene2erSchiffe += 1
+            Ichgebauf += 1
+
+        # Die unterste Zeile
+        if SchiffZeile == 7 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+            feld[SchiffZeile][SchiffSpalte] = "S"
+
+            feld[SchiffZeile - 1][SchiffSpalte] = "A"
+            feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+            feld[SchiffZeile][SchiffSpalte - 1] = "A"
+            feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile - 1][SchiffSpalte + 2] = "A"
+            feld[SchiffZeile][SchiffSpalte + 2] = "A"
+            Anzahl2erSFelder += 2
+            Vorhandene2erSchiffe += 1
+            Ichgebauf += 1
+
+    
     # 0 ist horizontal
-    if hoderv == 0:
+    elif hoderv == 0:
         if SchiffSpalte != 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
