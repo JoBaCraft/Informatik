@@ -216,7 +216,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                                                         feld[SchiffZeile][SchiffSpalte] = "S"
                                                         feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
                                                         
-                                                        AnzahlSFelder += 2
+                                                        Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
         # Die oberste Zeile
         if SchiffZeile == 1 and SchiffSpalte < FeldGroesse and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
