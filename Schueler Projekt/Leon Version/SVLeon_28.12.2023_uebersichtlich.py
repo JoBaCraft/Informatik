@@ -95,8 +95,13 @@ zeigeComputersicht(feld)
 # Zufallsverteilung der 1er-Schiffchen
 Vorhandene1erSchiffe = 0
 AnzahlSFelder = 0
-AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
-
+AnzahlSchiffe = False
+while AnzahlSchiffe is False:
+    try: 
+        AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
+    except ValueError:
+        print('Bitte nur ganze Zahlen eingeben!')
+    
 # Hilfsvariablen für DIE FORMEL
 f = float(FeldGroesse / 2)
 i = int(f)
@@ -105,8 +110,13 @@ Ichgebauf = 0
 while AnzahlSchiffe > f ** 2:
     print("Das sind zuviele Schiffe, try again :( ")
     print(AnzahlSchiffe)
-    AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
-
+    AnzahlSchiffe = False
+    while AnzahlSchiffe is False:
+        try:
+            AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
+        except ValueError:
+            print('Bitte nur ganze Zahlen eingeben!')
+            
 while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
     SchiffZeile = randint(0, FeldGroesse - 1)
     SchiffSpalte = randint(0, FeldGroesse - 1)
@@ -164,8 +174,13 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
 # Zufallsverteilung der 2er-Schiffchen
 Vorhandene2erSchiffe = 0
 Anzahl2erSFelder = 0
-Anzahl2erSchiffe = int(input("Anzahl der 2er-Schiffchen: "))
-
+Anzahl2erSchiffe = False
+while Anzahl2erSchiffe is False:
+    try:
+        Anzahl2erSchiffe = int(input("Anzahl der 2er-Schiffchen: "))
+    except ValueError:
+        print('Bitte nur ganze Zahlen eingeben!')
+     
 # Hilfsvariablen für DIE FORMEL
 # f = float(FeldGroesse/2)
 # i = int(f)
@@ -386,16 +401,16 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
 
 # Statistik des Spiels
 def SpielStatistik():
-    Trefferquote = getroffenenFelder / GebrauchteSchuesse
-    Schiffe = AnzahlSchiffe + Anzahl2erSchiffe
+    Trefferquote = (getroffenenFelder / GebrauchteSchuesse) * 100
     Feld = FeldGroesse
 
     print(f'''
 ================================================
 | Spiel-Statistik:
 |     
-| Trefferquote:            {Trefferquote: .2f}
-| Platzierte Schiffe:       {Schiffe}
+| Trefferquote:            {Trefferquote: .2f}%
+| Platzierte 1er-Schiffe:   {AnzahlSchiffe}
+| Platzierte 2er-Schiffe:   {Anzahl2erSchiffe}
 | Gewaehlte Feldgroesse:    {Feld}
 | Gebrauchte Schuesse:      {GebrauchteSchuesse}
 ================================================
