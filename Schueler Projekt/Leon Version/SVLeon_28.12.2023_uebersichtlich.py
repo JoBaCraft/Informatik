@@ -388,7 +388,7 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
             print("Treffer versenkt! ")
         elif feld[SchussZeile][SchussSpalte + 1] == "T":
             print("Treffer versenkt! ")
-        elif feld[SchussZeile][SchussSpalte -1] == "T":
+        elif feld[SchussZeile][SchussSpalte - 1] == "T":
             print("Treffer versenkt! ")
         else:
             ('Treffer!!')
