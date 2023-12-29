@@ -378,7 +378,37 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
         print('')
 
     # Treffer als "T" markieren
-    if feld[SchussZeile - 1][SchussSpalte - 1] == "S":
+
+        # Unterste Zeile
+    if SchussZeile == FeldGroesse and feld[SchussZeile - 1][SchussSpalte - 1] == "S":
+        feld[SchussZeile - 1][SchussSpalte - 1] = "T"
+        getroffenenFelder += 1
+        GebrauchteSchuesse += 1
+        if feld[SchussZeile - 1][SchussSpalte] == "T":
+            print("Treffer versenkt! ")
+        elif feld[SchussZeile][SchussSpalte + 1] == "T":
+            print("Treffer versenkt! ")
+        elif feld[SchussZeile][SchussSpalte - 1] == "T":
+            print("Treffer versenkt! ")
+        else:
+            print('Treffer!!')
+
+        # Oberste Zeile
+    elif SchussZeile == 1 and feld[SchussZeile - 1][SchussSpalte - 1] == "S":
+        feld[SchussZeile - 1][SchussSpalte - 1] = "T"
+        getroffenenFelder += 1
+        GebrauchteSchuesse += 1
+        if feld[SchussZeile + 1][SchussSpalte] == "T":
+            print("Treffer versenkt! ")
+        elif feld[SchussZeile][SchussSpalte + 1] == "T":
+            print("Treffer versenkt! ")
+        elif feld[SchussZeile][SchussSpalte - 1] == "T":
+            print("Treffer versenkt! ")
+        else:
+            print('Treffer!!')
+        
+        # Alle Anderen Zeilen
+    elif feld[SchussZeile - 1][SchussSpalte - 1] == "S":
         feld[SchussZeile - 1][SchussSpalte - 1] = "T"
         getroffenenFelder += 1
         GebrauchteSchuesse += 1
@@ -391,7 +421,7 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
         elif feld[SchussZeile][SchussSpalte - 1] == "T":
             print("Treffer versenkt! ")
         else:
-            ('Treffer!!')
+            print('Treffer!!')
 
     # Fehlschüsse als solche markieren
     elif feld[SchussZeile - 1][SchussSpalte - 1] == "~" or feld[SchussZeile - 1][SchussSpalte - 1] == "A":
