@@ -337,12 +337,12 @@ zeigeComputersicht(feld)
 print(f"Aufgrund der Zufallsverteilung wurden {Vorhandene2erSchiffe} 2er- und {Vorhandene1erSchiffe} 1er-Schiffe geplaced.")
 
 # Beschuss
-getroffenenFelder = 0
+getroffeneFelder = 0
 GebrauchteSchuesse = 0
 SchussZeile = False
 SchussSpalte = False
 
-while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
+while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
     while SchussZeile is False:
         try:
             SchussZeile = int(input("Zeile: "))
@@ -382,8 +382,9 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
         # Unterste Zeile
     if SchussZeile == FeldGroesse and feld[SchussZeile - 1][SchussSpalte - 1] == "S":
         feld[SchussZeile - 1][SchussSpalte - 1] = "T"
-        getroffenenFelder += 1
+        getroffeneFelder += 1
         GebrauchteSchuesse += 1
+        
         if feld[SchussZeile - 1][SchussSpalte] == "T":
             print("Treffer versenkt! ")
         elif feld[SchussZeile][SchussSpalte + 1] == "T":
@@ -396,8 +397,9 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
         # Oberste Zeile
     elif SchussZeile == 1 and feld[SchussZeile - 1][SchussSpalte - 1] == "S":
         feld[SchussZeile - 1][SchussSpalte - 1] = "T"
-        getroffenenFelder += 1
+        getroffeneFelder += 1
         GebrauchteSchuesse += 1
+        
         if feld[SchussZeile + 1][SchussSpalte] == "T":
             print("Treffer versenkt! ")
         elif feld[SchussZeile][SchussSpalte + 1] == "T":
@@ -410,8 +412,9 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
         # Alle Anderen Zeilen
     elif feld[SchussZeile - 1][SchussSpalte - 1] == "S":
         feld[SchussZeile - 1][SchussSpalte - 1] = "T"
-        getroffenenFelder += 1
+        getroffeneFelder += 1
         GebrauchteSchuesse += 1
+        
         if feld[SchussZeile + 1][SchussSpalte] == "T":
             print("Treffer versenkt! ")
         elif feld[SchussZeile - 1][SchussSpalte] == "T":
@@ -438,7 +441,7 @@ while getroffenenFelder < AnzahlSFelder + Anzahl2erSFelder:
 
 # Statistik des Spiels
 def SpielStatistik():
-    Trefferquote = (getroffenenFelder / GebrauchteSchuesse) * 100
+    Trefferquote = (getroffeneFelder / GebrauchteSchuesse) * 100
     Feld = FeldGroesse
 
     print(f'''
