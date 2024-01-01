@@ -1,5 +1,6 @@
 from random import randint
 
+
 # Groesse des Feldes
 gewuenschteFeldGroesse = False
 while gewuenschteFeldGroesse is False:
@@ -181,15 +182,7 @@ while Anzahl2erSchiffe is False:
     except ValueError:
         print('Bitte nur ganze Zahlen eingeben!')
      
-# Hilfsvariablen für DIE FORMEL
-# f = float(FeldGroesse/2)
-# i = int(f)
-# DIE FORMEL
 Ichgebauf = 0
-# while Anzahl2erSchiffe > f**2:
-# print("Das sind zu viele Schiffe, try again :( ")
-# print(Anzahl2erSchiffe)
-# Anzahl2erSchiffe = int(input("Anzahl der Zweier-Schiffchen: "))
 
 while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
 
@@ -201,6 +194,43 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
     if hoderv == 1:
         SchiffZeile = randint(1, FeldGroesse - 1)
         SchiffSpalte = randint(0, FeldGroesse - 1)
+        
+        # Die oberste Zeile
+        if SchiffZeile == 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+            feld[SchiffZeile][SchiffSpalte] = "S"
+            feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+
+            feld[SchiffZeile + 1][SchiffSpalte] = "A"
+            feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+
+            if SchiffSpalte > 0:
+                feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+                feld[SchiffZeile][SchiffSpalte - 1] = "A"
+                feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
+                
+            Anzahl2erSFelder += 2
+            Vorhandene2erSchiffe += 1
+            Ichgebauf += 1
+
+        # Die unterste Zeile
+        if SchiffZeile == 7 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+            feld[SchiffZeile][SchiffSpalte] = "S"
+            feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+
+            feld[SchiffZeile - 2][SchiffSpalte] = "A"
+            feld[SchiffZeile - 2][SchiffSpalte - 1] = "A"
+            feld[SchiffZeile - 2][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+            feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile][SchiffSpalte - 1] = "A"
+            
+            Anzahl2erSFelder += 2
+            Vorhandene2erSchiffe += 1
+            Ichgebauf += 1
+        
         if feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
@@ -215,7 +245,9 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                                                     if feld[SchiffZeile - 2][SchiffSpalte + 1] != "S":
                                             
                                                         # Abstandsfelder
-                                                        feld[SchiffZeile][SchiffSpalte] = "A"
+                                                        feld[SchiffZeile][SchiffSpalte] = "S"
+                                                        feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+                                                        
                                                         feld[SchiffZeile][SchiffSpalte - 1] = "A"
                                                         feld[SchiffZeile][SchiffSpalte + 1] = "A"
                                                         feld[SchiffZeile - 2][SchiffSpalte] = "A"
@@ -224,32 +256,30 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                                                         feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
                                                         feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
                                                         feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
-                                                        feld[SchiffZeile + 1][SchiffSpalte] = "A"
                                                         feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
-                                                        
-
-                
-                                                        feld[SchiffZeile][SchiffSpalte] = "S"
-                                                        feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+                                                        feld[SchiffZeile + 1][SchiffSpalte] = "A"
                                                         
                                                         Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
+    
+    # 0 ist horizontal
+    elif hoderv == 0:
+        SchiffZeile = randint(0, FeldGroesse - 1)
+        SchiffSpalte = randint(0, FeldGroesse - 2)
+        
         # Die oberste Zeile
-        if SchiffZeile == 1 and SchiffSpalte < FeldGroesse and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+        if SchiffZeile == 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             feld[SchiffZeile][SchiffSpalte] = "S"
-            feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+            feld[SchiffZeile][SchiffSpalte + 1] = "S"
 
             feld[SchiffZeile + 1][SchiffSpalte] = "A"
             feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
-            feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile][SchiffSpalte + 1] = "A"
-            
+            feld[SchiffZeile + 1][SchiffSpalte + 2] = "A"
+            feld[SchiffZeile][SchiffSpalte + 2] = "A"
 
-            if SchiffSpalte >= 1:
-                feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+            if SchiffSpalte > 0:
                 feld[SchiffZeile][SchiffSpalte - 1] = "A"
-                feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
-                
+                feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
             Ichgebauf += 1
@@ -257,7 +287,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
         # Die unterste Zeile
         if SchiffZeile == 7 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             feld[SchiffZeile][SchiffSpalte] = "S"
-            feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+            feld[SchiffZeile][SchiffSpalte + 1] = "S"
 
             feld[SchiffZeile - 1][SchiffSpalte] = "A"
             feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
@@ -268,11 +298,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
             Ichgebauf += 1
-    
-    # 0 ist horizontal
-    elif hoderv == 0:
-        SchiffZeile = randint(0, FeldGroesse - 1)
-        SchiffSpalte = randint(0, FeldGroesse - 2)
+        
         if SchiffSpalte != 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
@@ -304,37 +330,6 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                                                         Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
                                                         Ichgebauf += 1
-        # Die oberste Zeile
-        if SchiffZeile == 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
-            feld[SchiffZeile][SchiffSpalte] = "S"
-            feld[SchiffZeile][SchiffSpalte + 1] = "S"
-
-            feld[SchiffZeile + 1][SchiffSpalte] = "A"
-            feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
-            feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile + 1][SchiffSpalte + 2] = "A"
-            feld[SchiffZeile][SchiffSpalte + 2] = "A"
-
-            if SchiffSpalte >= 1:
-                feld[SchiffZeile][SchiffSpalte - 1] = "A"
-            Anzahl2erSFelder += 2
-            Vorhandene2erSchiffe += 1
-            Ichgebauf += 1
-
-        # Die unterste Zeile
-        if SchiffZeile == 7 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
-            feld[SchiffZeile][SchiffSpalte] = "S"
-
-            feld[SchiffZeile - 1][SchiffSpalte] = "A"
-            feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
-            feld[SchiffZeile - 1][SchiffSpalte + 2] = "A"
-            feld[SchiffZeile][SchiffSpalte + 2] = "A"
-            Anzahl2erSFelder += 2
-            Vorhandene2erSchiffe += 1
-            Ichgebauf += 1
-    Ichgebauf += 1
     
 print("Computersicht:")
 zeigeComputersicht(feld)
