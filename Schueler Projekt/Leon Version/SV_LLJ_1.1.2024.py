@@ -1,5 +1,8 @@
 from random import randint
 
+'''
+Author: Leon, Linus, Johannes
+'''
 
 # Groesse des Feldes
 gewuenschteFeldGroesse = False
