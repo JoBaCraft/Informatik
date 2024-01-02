@@ -132,11 +132,14 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
     if SchiffZeile == 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
         feld[SchiffZeile][SchiffSpalte] = "S"
 
+        feld[SchiffZeile][SchiffSpalte + 1] = "A"
         feld[SchiffZeile + 1][SchiffSpalte] = "A"
         feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
-        feld[SchiffZeile][SchiffSpalte + 1] = "A"
-        if SchiffSpalte >= 1:
+        feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
+        
+        if SchiffSpalte > 0:
             feld[SchiffZeile][SchiffSpalte - 1] = "A"
+
         AnzahlSFelder += 1
         Vorhandene1erSchiffe += 1
 
@@ -144,10 +147,13 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
     if SchiffZeile == 7 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
         feld[SchiffZeile][SchiffSpalte] = "S"
 
+        feld[SchiffZeile][SchiffSpalte + 1] = "A"
         feld[SchiffZeile - 1][SchiffSpalte] = "A"
         feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
-        feld[SchiffZeile][SchiffSpalte - 1] = "A"
         feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+        if SchiffSpalte > 0:
+            feld[SchiffZeile][SchiffSpalte - 1] = "A"
+
         AnzahlSFelder += 1
         Vorhandene1erSchiffe += 1
 
@@ -160,18 +166,18 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
                             if feld[SchiffZeile + 1][SchiffSpalte + 1] != "S":
                                 if feld[SchiffZeile][SchiffSpalte + 1] != "S":
                                     if feld[SchiffZeile - 1][SchiffSpalte + 1] != "S":
-                                        # Abstandsfelder
+                                        feld[SchiffZeile][SchiffSpalte] = "S"
+                                        
                                         feld[SchiffZeile][SchiffSpalte] = "A"
+                                        feld[SchiffZeile][SchiffSpalte - 1] = "A"
+                                        feld[SchiffZeile][SchiffSpalte + 1] = "A"
                                         feld[SchiffZeile - 1][SchiffSpalte] = "A"
                                         feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
-                                        feld[SchiffZeile][SchiffSpalte - 1] = "A"
-                                        feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
-                                        feld[SchiffZeile + 1][SchiffSpalte] = "A"
-                                        feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
-                                        feld[SchiffZeile][SchiffSpalte + 1] = "A"
                                         feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+                                        feld[SchiffZeile + 1][SchiffSpalte] = "A"
+                                        feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
+                                        feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
 
-                                        feld[SchiffZeile][SchiffSpalte] = "S"
                                         AnzahlSFelder += 1
                                         Vorhandene1erSchiffe += 1
 
@@ -187,8 +193,8 @@ while Anzahl2erSchiffe is False:
      
 Ichgebauf = 0
 
-while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
-
+while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
+    Ichgebauf += 1
     # horizontal oder vertikal
     hoderv = randint(0, 1)
     #hoderv = 1
@@ -203,36 +209,34 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
             feld[SchiffZeile][SchiffSpalte] = "S"
             feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
 
+            feld[SchiffZeile][SchiffSpalte + 1] = "A"
             feld[SchiffZeile + 1][SchiffSpalte] = "A"
             feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
-            feld[SchiffZeile][SchiffSpalte + 1] = "A"
             feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
 
             if SchiffSpalte > 0:
-                feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
                 feld[SchiffZeile][SchiffSpalte - 1] = "A"
                 feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
+                feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
                 
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-            Ichgebauf += 1
 
         # Die unterste Zeile
         if SchiffZeile == 7 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             feld[SchiffZeile][SchiffSpalte] = "S"
             feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
 
-            feld[SchiffZeile - 2][SchiffSpalte] = "A"
-            feld[SchiffZeile - 2][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile - 2][SchiffSpalte + 1] = "A"
-            feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
             feld[SchiffZeile][SchiffSpalte + 1] = "A"
             feld[SchiffZeile][SchiffSpalte - 1] = "A"
+            feld[SchiffZeile - 2][SchiffSpalte] = "A"
+            feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile - 2][SchiffSpalte + 1] = "A"
+            feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+            feld[SchiffZeile - 2][SchiffSpalte - 1] = "A"
             
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-            Ichgebauf += 1
         
         if feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
@@ -275,34 +279,32 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
             feld[SchiffZeile][SchiffSpalte] = "S"
             feld[SchiffZeile][SchiffSpalte + 1] = "S"
 
+            feld[SchiffZeile][SchiffSpalte + 2] = "A"
             feld[SchiffZeile + 1][SchiffSpalte] = "A"
             feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
             feld[SchiffZeile + 1][SchiffSpalte + 2] = "A"
-            feld[SchiffZeile][SchiffSpalte + 2] = "A"
 
             if SchiffSpalte > 0:
                 feld[SchiffZeile][SchiffSpalte - 1] = "A"
                 feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-            Ichgebauf += 1
 
         # Die unterste Zeile
         if SchiffZeile == 7 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             feld[SchiffZeile][SchiffSpalte] = "S"
             feld[SchiffZeile][SchiffSpalte + 1] = "S"
 
+            feld[SchiffZeile][SchiffSpalte + 2] = "A"
+            feld[SchiffZeile][SchiffSpalte - 1] = "A"
             feld[SchiffZeile - 1][SchiffSpalte] = "A"
             feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile][SchiffSpalte - 1] = "A"
             feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
             feld[SchiffZeile - 1][SchiffSpalte + 2] = "A"
-            feld[SchiffZeile][SchiffSpalte + 2] = "A"
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-            Ichgebauf += 1
         
-        if SchiffSpalte != 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+        if feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
                     if feld[SchiffZeile][SchiffSpalte - 1] != "S":
@@ -316,28 +318,27 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 100:
                                                     if feld[SchiffZeile - 1][SchiffSpalte + 2] != "S":
                                                         # Abstandsfelder
                                                         feld[SchiffZeile][SchiffSpalte] = "A"
-                                                        feld[SchiffZeile - 1][SchiffSpalte] = "A"
-                                                        feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+                                                        feld[SchiffZeile][SchiffSpalte + 2] = "A"
                                                         feld[SchiffZeile][SchiffSpalte - 1] = "A"
-                                                        feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
                                                         feld[SchiffZeile + 1][SchiffSpalte] = "A"
                                                         feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
-                                                        feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
                                                         feld[SchiffZeile + 1][SchiffSpalte + 2] = "A"
-                                                        feld[SchiffZeile][SchiffSpalte + 2] = "A"
+                                                        feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
+                                                        feld[SchiffZeile - 1][SchiffSpalte] = "A"
+                                                        feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
                                                         feld[SchiffZeile - 1][SchiffSpalte + 2] = "A"
+                                                        feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
 
                                                         # Schiffsplatzierung
                                                         feld[SchiffZeile][SchiffSpalte] = "S"
                                                         feld[SchiffZeile][SchiffSpalte + 1] = "S"
                                                         Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
-                                                        Ichgebauf += 1
     
 print("Computersicht:")
 zeigeComputersicht(feld)
 
-print(f"Aufgrund der Zufallsverteilung wurden {Vorhandene2erSchiffe} 2er- und {Vorhandene1erSchiffe} 1er-Schiffe geplaced.")
+print(f"Aufgrund der Zufallsverteilung wurden {Vorhandene2erSchiffe} 2er- und {Vorhandene1erSchiffe} 1er-Schiffe platziert.")
 
 # Beschuss
 getroffeneFelder = 0
