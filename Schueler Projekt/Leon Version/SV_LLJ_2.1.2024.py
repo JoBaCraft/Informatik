@@ -195,9 +195,9 @@ Ichgebauf = 0
 
 while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
     Ichgebauf += 1
+    
     # horizontal oder vertikal
     hoderv = randint(0, 1)
-    #hoderv = 1
     
     # 1 ist vertikal
     if hoderv == 1:
