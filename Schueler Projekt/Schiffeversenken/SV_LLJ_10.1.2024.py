@@ -202,10 +202,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
     # 1 ist vertikal
     if hoderv == 1:
         SchiffZeile = randint(1, FeldGroesse - 1)
-        print(SchiffZeile)
         SchiffSpalte = randint(0, FeldGroesse - 1)
-        print(SchiffSpalte)
-        print("vertikal")
         
         # Die oberste Zeile
         if SchiffZeile == 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
@@ -228,19 +225,20 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
 
         # Die unterste Zeile
         if SchiffZeile == FeldGroesse - 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
-            feld[SchiffZeile][SchiffSpalte] = "S"
-            feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+            if feld[SchiffZeile + 1][SchiffSpalte] != "S" and feld[SchiffZeile + 1][SchiffSpalte] != "A":
+                feld[SchiffZeile][SchiffSpalte] = "S"
+                feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
 
-            feld[SchiffZeile][SchiffSpalte + 1] = "A"
-            feld[SchiffZeile][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile - 2][SchiffSpalte] = "A"
-            feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
-            feld[SchiffZeile - 2][SchiffSpalte + 1] = "A"
-            feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
-            feld[SchiffZeile - 2][SchiffSpalte - 1] = "A"
-            
-            Anzahl2erSFelder += 2
-            Vorhandene2erSchiffe += 1
+                feld[SchiffZeile][SchiffSpalte + 1] = "A"
+                feld[SchiffZeile][SchiffSpalte - 1] = "A"
+                feld[SchiffZeile - 2][SchiffSpalte] = "A"
+                feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
+                feld[SchiffZeile - 2][SchiffSpalte + 1] = "A"
+                feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
+                feld[SchiffZeile - 2][SchiffSpalte - 1] = "A"
+
+                Anzahl2erSFelder += 2
+                Vorhandene2erSchiffe += 1
         
         if feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
@@ -276,10 +274,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
     # 0 ist horizontal
     elif hoderv == 0:
         SchiffZeile = randint(0, FeldGroesse - 1)
-        print(SchiffZeile)
         SchiffSpalte = randint(0, FeldGroesse - 2)
-        print(SchiffSpalte)
-        print("horizontal")
         
         # Die oberste Zeile
         if SchiffZeile == 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
@@ -416,7 +411,7 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
         GebrauchteSchuesse += 1
         
         if feld[SchussZeile + 1][SchussSpalte] == "S":
-            print("Treffer")
+            print("Treffer! ")
         elif feld[SchussZeile][SchussSpalte + 1] == "S":
             print("Treffer! ")
         elif feld[SchussZeile][SchussSpalte - 1] == "S":
@@ -464,8 +459,8 @@ def SpielStatistik():
 | Spiel-Statistik:
 |     
 | Trefferquote:            {Trefferquote: .2f}%
-| Platzierte 1er-Schiffe:   {AnzahlSchiffe}
-| Platzierte 2er-Schiffe:   {Anzahl2erSchiffe}
+| Platzierte 1er-Schiffe:   {Vorhandene1erSchiffe}
+| Platzierte 2er-Schiffe:   {Vorhandene2erSchiffe}
 | Gewaehlte Feldgroesse:    {Feld}
 | Gebrauchte Schuesse:      {GebrauchteSchuesse}
 ================================================
