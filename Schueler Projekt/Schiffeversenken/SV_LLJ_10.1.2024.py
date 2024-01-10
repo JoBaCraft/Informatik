@@ -2,9 +2,6 @@ from random import randint
 
 '''
 Author: Leon, Linus, Johannes
-
-
-Test
 '''
 
 # Groesse des Feldes
