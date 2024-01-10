@@ -168,7 +168,6 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
                                     if feld[SchiffZeile - 1][SchiffSpalte + 1] != "S":
                                         feld[SchiffZeile][SchiffSpalte] = "S"
                                         
-                                        feld[SchiffZeile][SchiffSpalte] = "A"
                                         feld[SchiffZeile][SchiffSpalte - 1] = "A"
                                         feld[SchiffZeile][SchiffSpalte + 1] = "A"
                                         feld[SchiffZeile - 1][SchiffSpalte] = "A"
