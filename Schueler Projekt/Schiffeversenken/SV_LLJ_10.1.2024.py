@@ -351,7 +351,9 @@ SchussSpalte = False
 while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
     while SchussZeile is False:
         try:
-            SchussZeile = int(input("Zeile: "))
+            while SchussZeile < 1:
+                SchussZeile = int(input("Zeile: "))
+                print('Zahl muss groesser als 0 sein.')
         except ValueError:
             print('Bitte nur ganze Zahlen eingeben!')
 
@@ -361,14 +363,18 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
         SchussZeile = False
         while SchussZeile is False:
             try:
-                SchussZeile = int(input("Zeile: "))
+                while SchussZeile < 1:
+                    SchussZeile = int(input("Zeile: "))
+                    print('Zahl muss groesser als 0 sein.')
             except ValueError:
                 print('Bitte nur ganze Zahlen eingeben!')
 
     # whileschleife sorgt dafür, dass man keine zu grosse Zahl eingeben kann und so ein Error verhindert wird
     while SchussSpalte is False:
         try:
-            SchussSpalte = int(input("Spalte: "))
+            while SchussSpalte < 1:
+                SchussSpalte = int(input("Spalte: "))
+                print('Zahl muss groesser als 0 sein.')
         except ValueError:
             print('Bitte nur ganze Zahlen eingeben!')
     print('')
@@ -378,7 +384,9 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
         SchussSpalte = False
         while SchussSpalte is False:
             try:
-                SchussSpalte = int(input("Spalte: "))
+                while SchussSpalte < 1:
+                    SchussSpalte = int(input("Spalte: "))
+                    print('Zahl muss groesser als 0 sein.')
             except ValueError:
                 print('Bitte nur ganze Zahlen eingeben!')
         print('')
