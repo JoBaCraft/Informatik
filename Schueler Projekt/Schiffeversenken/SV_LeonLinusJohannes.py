@@ -118,7 +118,7 @@ while AnzahlSchiffe > f ** 2:
         except ValueError:
             print('Bitte nur ganze Zahlen eingeben!')
             
-while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
+while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= FeldGroesse **2:
     SchiffZeile = randint(0, FeldGroesse - 1)
     SchiffSpalte = randint(0, FeldGroesse - 1)
     Ichgebauf += 1
@@ -193,7 +193,7 @@ while Anzahl2erSchiffe is False:
      
 Ichgebauf = 0
 
-while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
+while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= FeldGroesse **2:
     Ichgebauf += 1
     
     # horizontal oder vertikal
