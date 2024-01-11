@@ -17,7 +17,6 @@ zeile = []
 feld = []
 
 
-# Das Zeug ausm Testmodul
 def zeigeSpielersicht(feld):
     i = 0
 
@@ -55,7 +54,7 @@ def zeigeComputersicht(feld):
 
     while AnzahlZahlen < gewuenschteFeldGroesse:
         Zahlen.append(" ")
-        Zahlen.append(Zahl)  # type: ignore
+        Zahlen.append(Zahl) # type: ignore
         Zahl += 1
         AnzahlZahlen += 1
     print(*Zahlen, sep="")  # Schönes Ausgeben der Listen
@@ -65,7 +64,7 @@ def zeigeComputersicht(feld):
         zeilentext = str(i + 1) + ' '
         while j < gewuenschteFeldGroesse:
             if feld[i][j] == 'A':
-                zeilentext += '~ '  #######
+                zeilentext += '~ '
             else:
                 zeilentext += feld[i][j] + ' '
             j = j + 1
@@ -84,12 +83,10 @@ while FeldGroesse < gewuenschteFeldGroesse:
     zeile.append(" ")
     zeile.append(" ")
     feld.append(zeile)
-    # zeile = []
     FeldGroesse += 1
 feld.append(zeile)
 
 # Ausgabe der Spielfelder
-# print(feld) Einzeilige Ausgabe zur Überpruefung
 print("Spielersicht:")
 zeigeSpielersicht(feld)
 
@@ -108,11 +105,11 @@ while AnzahlSchiffe is False:
     
 # Hilfsvariablen für DIE FORMEL
 f = float(FeldGroesse / 2)
-i = int(f)
-# DIE FORMEL
+
+# DIE FORMEL fuer maximale Anzahl von Schiffen, die platziert werden koennen
 Ichgebauf = 0
 while AnzahlSchiffe > f ** 2:
-    print("Das sind zuviele Schiffe, try again :( ")
+    print("Das sind zuviele Schiffe, try again.")
     print(AnzahlSchiffe)
     AnzahlSchiffe = False
     while AnzahlSchiffe is False:
@@ -125,13 +122,13 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
     SchiffZeile = randint(0, FeldGroesse - 1)
     SchiffSpalte = randint(0, FeldGroesse - 1)
     Ichgebauf += 1
-    # print(SchiffZeile) #Zur Überpruefung bei Errors
-    # print(SchiffSpalte) #Zur Überpruefung bei Errors
 
     # Die oberste Zeile
     if SchiffZeile == 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+        # Schiffsplatzierung
         feld[SchiffZeile][SchiffSpalte] = "S"
 
+        # Abstandsfelder
         feld[SchiffZeile][SchiffSpalte + 1] = "A"
         feld[SchiffZeile + 1][SchiffSpalte] = "A"
         feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
@@ -145,15 +142,17 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
 
     # Die unterste Zeile
     if SchiffZeile == FeldGroesse - 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+        # Schiffsplatzierung
         feld[SchiffZeile][SchiffSpalte] = "S"
 
+        # Abstandsfelder
         feld[SchiffZeile][SchiffSpalte + 1] = "A"
         feld[SchiffZeile - 1][SchiffSpalte] = "A"
         feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
         feld[SchiffZeile - 1][SchiffSpalte + 1] = "A"
         if SchiffSpalte > 0:
             feld[SchiffZeile][SchiffSpalte - 1] = "A"
-
+        
         AnzahlSFelder += 1
         Vorhandene1erSchiffe += 1
 
@@ -166,8 +165,10 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
                             if feld[SchiffZeile + 1][SchiffSpalte + 1] != "S":
                                 if feld[SchiffZeile][SchiffSpalte + 1] != "S":
                                     if feld[SchiffZeile - 1][SchiffSpalte + 1] != "S":
+                                        # Schiffsplatzierung
                                         feld[SchiffZeile][SchiffSpalte] = "S"
                                         
+                                        # Abstandsfelder
                                         feld[SchiffZeile][SchiffSpalte - 1] = "A"
                                         feld[SchiffZeile][SchiffSpalte + 1] = "A"
                                         feld[SchiffZeile - 1][SchiffSpalte] = "A"
@@ -196,19 +197,21 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
     Ichgebauf += 1
     
     # horizontal oder vertikal
-    hoderv = randint(0, 1)
+    Richtung = randint(0, 1)
     
     # 1 ist vertikal
-    if hoderv == 1:
+    if Richtung == 1:
         SchiffZeile = randint(1, FeldGroesse - 1)
         SchiffSpalte = randint(0, FeldGroesse - 1)
         
         # Die oberste Zeile
         if SchiffZeile == 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S" and feld[SchiffZeile - 1][SchiffSpalte] != "A":
+                # Schiffsplatzierung
                 feld[SchiffZeile][SchiffSpalte] = "S"
                 feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
 
+                # Abstandsfelder
                 feld[SchiffZeile][SchiffSpalte + 1] = "A"
                 feld[SchiffZeile + 1][SchiffSpalte] = "A"
                 feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
@@ -225,9 +228,11 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
         # Die unterste Zeile
         if SchiffZeile == FeldGroesse - 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile + 1][SchiffSpalte] != "S" and feld[SchiffZeile + 1][SchiffSpalte] != "A":
+                # Schiffsplatzierung
                 feld[SchiffZeile][SchiffSpalte] = "S"
                 feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
 
+                # Abstandsfelder
                 feld[SchiffZeile][SchiffSpalte + 1] = "A"
                 feld[SchiffZeile][SchiffSpalte - 1] = "A"
                 feld[SchiffZeile - 2][SchiffSpalte] = "A"
@@ -251,11 +256,11 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
                                             if feld[SchiffZeile - 2][SchiffSpalte - 1] != "S":
                                                 if feld[SchiffZeile - 2][SchiffSpalte] != "S":
                                                     if feld[SchiffZeile - 2][SchiffSpalte + 1] != "S":
-                                            
-                                                        # Abstandsfelder
+                                                        # Schiffsplatzierung
                                                         feld[SchiffZeile][SchiffSpalte] = "S"
                                                         feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
-                                                        
+
+                                                        # Abstandsfelder
                                                         feld[SchiffZeile][SchiffSpalte - 1] = "A"
                                                         feld[SchiffZeile][SchiffSpalte + 1] = "A"
                                                         feld[SchiffZeile - 2][SchiffSpalte] = "A"
@@ -271,16 +276,18 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
                                                         Vorhandene2erSchiffe += 1
     
     # 0 ist horizontal
-    elif hoderv == 0:
+    elif Richtung == 0:
         SchiffZeile = randint(0, FeldGroesse - 1)
         SchiffSpalte = randint(0, FeldGroesse - 2)
         
         # Die oberste Zeile
         if SchiffZeile == 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile][SchiffSpalte + 1] != "S" and feld[SchiffZeile][SchiffSpalte + 1] != "A":
+                # Schiffsplatzierung
                 feld[SchiffZeile][SchiffSpalte] = "S"
                 feld[SchiffZeile][SchiffSpalte + 1] = "S"
 
+                # Abstandsfelder
                 feld[SchiffZeile][SchiffSpalte + 2] = "A"
                 feld[SchiffZeile + 1][SchiffSpalte] = "A"
                 feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
@@ -294,9 +301,11 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
 
         # Die unterste Zeile
         if SchiffZeile == FeldGroesse - 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
+            # Schiffsplatzierung
             feld[SchiffZeile][SchiffSpalte] = "S"
             feld[SchiffZeile][SchiffSpalte + 1] = "S"
 
+            # Abstandsfelder
             feld[SchiffZeile][SchiffSpalte + 2] = "A"
             feld[SchiffZeile][SchiffSpalte - 1] = "A"
             feld[SchiffZeile - 1][SchiffSpalte] = "A"
@@ -318,6 +327,10 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
                                             if feld[SchiffZeile][SchiffSpalte + 2] != "S":
                                                 if feld[SchiffZeile - 1][SchiffSpalte + 1] != "S":
                                                     if feld[SchiffZeile - 1][SchiffSpalte + 2] != "S":
+                                                        # Schiffsplatzierung
+                                                        feld[SchiffZeile][SchiffSpalte] = "S"
+                                                        feld[SchiffZeile][SchiffSpalte + 1] = "S"
+                                                        
                                                         # Abstandsfelder
                                                         feld[SchiffZeile][SchiffSpalte] = "A"
                                                         feld[SchiffZeile][SchiffSpalte + 2] = "A"
@@ -331,9 +344,6 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
                                                         feld[SchiffZeile - 1][SchiffSpalte + 2] = "A"
                                                         feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
 
-                                                        # Schiffsplatzierung
-                                                        feld[SchiffZeile][SchiffSpalte] = "S"
-                                                        feld[SchiffZeile][SchiffSpalte + 1] = "S"
                                                         Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
     
@@ -345,8 +355,8 @@ print(f"Aufgrund der Zufallsverteilung wurden {Vorhandene2erSchiffe} 2er- und {V
 # Beschuss
 getroffeneFelder = 0
 GebrauchteSchuesse = 0
-SchussZeile = False
-SchussSpalte = False
+SchussZeile = False         # Um User-Error bei der Eingabe zu vermeiden
+SchussSpalte = False        # Um User-Error bei der Eingabe zu vermeiden
 
 while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
     while SchussZeile is False:
@@ -395,12 +405,13 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
                 print('Bitte nur ganze Zahlen eingeben!')
         print('')
 
+    # Damit die Treffer richtig erkannt werden
     SchussZeile -= 1
     SchussSpalte -= 1
     
     # Treffer als "T" markieren
-
-        # Unterste Zeile
+    
+    # Unterste Zeile
     if SchussZeile == FeldGroesse and feld[SchussZeile][SchussSpalte] == "S":
         feld[SchussZeile][SchussSpalte] = "T"
         getroffeneFelder += 1
@@ -416,7 +427,7 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
             print('Treffer versenkt! ')
 
 
-        # Oberste Zeile
+    # Oberste Zeile
     elif SchussZeile == 0 and feld[SchussZeile][SchussSpalte] == "S":
         feld[SchussZeile][SchussSpalte] = "T"
         getroffeneFelder += 1
@@ -431,7 +442,7 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
         else:
             print('Treffer versenkt! ')
         
-        # Alle Anderen Zeilen
+    # Alle Anderen Zeilen
     elif feld[SchussZeile][SchussSpalte] == "S":
         feld[SchussZeile][SchussSpalte] = "T"
         getroffeneFelder += 1
