@@ -65,7 +65,7 @@ def zeigeComputersicht(feld):
         zeilentext = str(i + 1) + ' '
         while j < gewuenschteFeldGroesse:
             if feld[i][j] == 'A':
-                zeilentext += '~ '  #######
+                zeilentext += '~ '  #
             else:
                 zeilentext += feld[i][j] + ' '
             j = j + 1
@@ -101,11 +101,11 @@ Vorhandene1erSchiffe = 0
 AnzahlSFelder = 0
 AnzahlSchiffe = False
 while AnzahlSchiffe is False:
-    try: 
+    try:
         AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
     except ValueError:
         print('Bitte nur ganze Zahlen eingeben!')
-    
+
 # Hilfsvariablen für DIE FORMEL
 f = float(FeldGroesse / 2)
 i = int(f)
@@ -120,7 +120,7 @@ while AnzahlSchiffe > f ** 2:
             AnzahlSchiffe = int(input("Anzahl der Einer-Schiffchen: "))
         except ValueError:
             print('Bitte nur ganze Zahlen eingeben!')
-            
+
 while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
     SchiffZeile = randint(0, FeldGroesse - 1)
     SchiffSpalte = randint(0, FeldGroesse - 1)
@@ -136,7 +136,7 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
         feld[SchiffZeile + 1][SchiffSpalte] = "A"
         feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
         feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
-        
+
         if SchiffSpalte > 0:
             feld[SchiffZeile][SchiffSpalte - 1] = "A"
 
@@ -167,7 +167,7 @@ while AnzahlSchiffe > Vorhandene1erSchiffe and Ichgebauf <= 100:
                                 if feld[SchiffZeile][SchiffSpalte + 1] != "S":
                                     if feld[SchiffZeile - 1][SchiffSpalte + 1] != "S":
                                         feld[SchiffZeile][SchiffSpalte] = "S"
-                                        
+
                                         feld[SchiffZeile][SchiffSpalte - 1] = "A"
                                         feld[SchiffZeile][SchiffSpalte + 1] = "A"
                                         feld[SchiffZeile - 1][SchiffSpalte] = "A"
@@ -189,25 +189,25 @@ while Anzahl2erSchiffe is False:
         Anzahl2erSchiffe = int(input("Anzahl der 2er-Schiffchen: "))
     except ValueError:
         print('Bitte nur ganze Zahlen eingeben!')
-     
+
 Ichgebauf = 0
 
 while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
     Ichgebauf += 1
-    
+
     # horizontal oder vertikal
     hoderv = randint(0, 1)
-    
+
     # 1 ist vertikal
     if hoderv == 1:
         SchiffZeile = randint(1, FeldGroesse - 1)
         SchiffSpalte = randint(0, FeldGroesse - 1)
-        
+
         # Die oberste Zeile
         if SchiffZeile == 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S" and feld[SchiffZeile - 1][SchiffSpalte] != "A":
                 feld[SchiffZeile][SchiffSpalte] = "S"
-                feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+                feld[SchiffZeile - 1][SchiffSpalte] = "S"
 
                 feld[SchiffZeile][SchiffSpalte + 1] = "A"
                 feld[SchiffZeile + 1][SchiffSpalte] = "A"
@@ -218,7 +218,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
                     feld[SchiffZeile][SchiffSpalte - 1] = "A"
                     feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
                     feld[SchiffZeile - 1][SchiffSpalte - 1] = "A"
-                    
+
                 Anzahl2erSFelder += 2
                 Vorhandene2erSchiffe += 1
 
@@ -226,7 +226,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
         if SchiffZeile == FeldGroesse - 1 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile + 1][SchiffSpalte] != "S" and feld[SchiffZeile + 1][SchiffSpalte] != "A":
                 feld[SchiffZeile][SchiffSpalte] = "S"
-                feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
+                feld[SchiffZeile - 1][SchiffSpalte] = "S"
 
                 feld[SchiffZeile][SchiffSpalte + 1] = "A"
                 feld[SchiffZeile][SchiffSpalte - 1] = "A"
@@ -238,7 +238,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
 
                 Anzahl2erSFelder += 2
                 Vorhandene2erSchiffe += 1
-        
+
         if feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
@@ -251,11 +251,10 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
                                             if feld[SchiffZeile - 2][SchiffSpalte - 1] != "S":
                                                 if feld[SchiffZeile - 2][SchiffSpalte] != "S":
                                                     if feld[SchiffZeile - 2][SchiffSpalte + 1] != "S":
-                                            
                                                         # Abstandsfelder
                                                         feld[SchiffZeile][SchiffSpalte] = "S"
-                                                        feld[SchiffZeile - 1 ][SchiffSpalte] = "S"
-                                                        
+                                                        feld[SchiffZeile - 1][SchiffSpalte] = "S"
+
                                                         feld[SchiffZeile][SchiffSpalte - 1] = "A"
                                                         feld[SchiffZeile][SchiffSpalte + 1] = "A"
                                                         feld[SchiffZeile - 2][SchiffSpalte] = "A"
@@ -266,15 +265,15 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
                                                         feld[SchiffZeile + 1][SchiffSpalte - 1] = "A"
                                                         feld[SchiffZeile + 1][SchiffSpalte + 1] = "A"
                                                         feld[SchiffZeile + 1][SchiffSpalte] = "A"
-                                                        
+
                                                         Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
-    
+
     # 0 ist horizontal
     elif hoderv == 0:
         SchiffZeile = randint(0, FeldGroesse - 1)
         SchiffSpalte = randint(0, FeldGroesse - 2)
-        
+
         # Die oberste Zeile
         if SchiffZeile == 0 and feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile][SchiffSpalte + 1] != "S" and feld[SchiffZeile][SchiffSpalte + 1] != "A":
@@ -305,7 +304,7 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
             feld[SchiffZeile - 1][SchiffSpalte + 2] = "A"
             Anzahl2erSFelder += 2
             Vorhandene2erSchiffe += 1
-        
+
         if feld[SchiffZeile][SchiffSpalte] != "S" and feld[SchiffZeile][SchiffSpalte] != "A":
             if feld[SchiffZeile - 1][SchiffSpalte] != "S":
                 if feld[SchiffZeile - 1][SchiffSpalte - 1] != "S":
@@ -336,11 +335,12 @@ while Anzahl2erSchiffe > Vorhandene2erSchiffe and Ichgebauf <= 1000:
                                                         feld[SchiffZeile][SchiffSpalte + 1] = "S"
                                                         Anzahl2erSFelder += 2
                                                         Vorhandene2erSchiffe += 1
-    
+
 print("Computersicht:")
 zeigeComputersicht(feld)
 
-print(f"Aufgrund der Zufallsverteilung wurden {Vorhandene2erSchiffe} 2er- und {Vorhandene1erSchiffe} 1er-Schiffe platziert.")
+print(
+   f"Aufgrund der Zufallsverteilung wurden {Vorhandene2erSchiffe} 2er- und {Vorhandene1erSchiffe} 1er-Schiffe platziert.")
 
 # Beschuss
 getroffeneFelder = 0
@@ -393,12 +393,12 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
 
     # Treffer als "T" markieren
 
-        # Unterste Zeile
+    # Unterste Zeile
     if SchussZeile == FeldGroesse and feld[SchussZeile - 1][SchussSpalte - 1] == "S":
         feld[SchussZeile - 1][SchussSpalte - 1] = "T"
         getroffeneFelder += 1
         GebrauchteSchuesse += 1
-        
+
         if feld[SchussZeile - 1][SchussSpalte] == "S":
             print("Treffer! ")
         elif feld[SchussZeile][SchussSpalte + 1] == "S":
@@ -407,16 +407,13 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
             print("Treffer! ")
         else:
             print('Treffer versenkt! ')
-            
-            
-            
 
         # Oberste Zeile
     elif SchussZeile == 1 and feld[SchussZeile - 1][SchussSpalte - 1] == "S":
         feld[SchussZeile - 1][SchussSpalte - 1] = "T"
         getroffeneFelder += 1
         GebrauchteSchuesse += 1
-        
+
         if feld[SchussZeile + 1][SchussSpalte] == "S":
             print("Treffer! ")
         elif feld[SchussZeile][SchussSpalte + 1] == "S":
@@ -425,13 +422,13 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
             print("Treffer! ")
         else:
             print('Treffer versenkt! ')
-        
+
         # Alle Anderen Zeilen
     elif feld[SchussZeile - 1][SchussSpalte - 1] == "S":
         feld[SchussZeile - 1][SchussSpalte - 1] = "T"
         getroffeneFelder += 1
         GebrauchteSchuesse += 1
-        
+
         if feld[SchussZeile + 1][SchussSpalte] == "S":
             print("Treffer! ")
         elif feld[SchussZeile - 1][SchussSpalte] == "S":
@@ -457,20 +454,21 @@ while getroffeneFelder < AnzahlSFelder + Anzahl2erSFelder:
 
 
 # Statistik des Spiels
-def SpielStatistik():
-    Trefferquote = (getroffeneFelder / GebrauchteSchuesse) * 100
-    Feld = FeldGroesse
+def spielstatistik():
+    trefferquote = (getroffeneFelder / GebrauchteSchuesse) * 100
+    feld_ = FeldGroesse
 
     print(f'''
 ================================================
 | Spiel-Statistik:
 |     
-| Trefferquote:            {Trefferquote: .2f}%
+| Trefferquote:            {trefferquote: .2f}%
 | Platzierte 1er-Schiffe:   {Vorhandene1erSchiffe}
 | Platzierte 2er-Schiffe:   {Vorhandene2erSchiffe}
-| Gewaehlte Feldgroesse:    {Feld}
+| Gewaehlte Feldgroesse:    {feld_}
 | Gebrauchte Schuesse:      {GebrauchteSchuesse}
 ================================================
 ''')
 
-SpielStatistik()
+
+spielstatistik()
