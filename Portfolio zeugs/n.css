@@ -1,0 +1,47 @@
+body
+{
+	background-color: #F5DEB3;
+	color: black;
+	font-size: small;
+	font-family: Georgia, "Tretbuchet MS", Veranda, sans-seif;
+}
+h1, em
+{
+	font-weight: bold;
+	font-style: normal;
+}
+h1
+{
+	font-size: 300%;
+}
+h3
+{
+	font-size: 200%;
+}
+em
+{
+	color: blue;
+}
+ul em
+{
+	color: red;
+}
+a
+{
+	color: #178899;
+	font-size: 125%
+}
+p
+{
+	font-size: 150%;
+}
+ul
+{
+	font-size: 125%;
+}
+strong
+{
+	font-size: 150%;
+}
+
+
