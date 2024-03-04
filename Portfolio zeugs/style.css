@@ -1,11 +1,11 @@
 body    {
-    background-image:  url("Portfolio/verschluesselung.jpg");
+    background-image:  url("Portfolio/Caesar-back.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 130%;
 	color: #000000;
 	font-size: small;
-	font-family: Georgia, "Tretbuchet MS", Veranda, sans-seif;
+	font-family: Georgia, "Tretbuchet MS", "Veranda", "sans-seif";
 }
 
 
