@@ -1,0 +1,65 @@
+body    {
+	background-color: #F5DEB3;
+	color: black;
+	font-size: small;
+	font-family: Georgia, "Tretbuchet MS", Veranda, sans-seif;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+
+h1, em  {
+	font-weight: bold;
+	font-style: initial;
+}
+
+
+h1  {
+	font-size: 300%;
+}
+
+
+h2  {
+    font-size: 150%;
+}
+
+
+h3  {
+    font-size: 200%;
+}
+
+
+p   {
+    font-size: 150%;
+}
+
+
+em  {
+	color: blue;
+}
+
+
+ul em   {
+	color: red;
+}
+
+
+a   {
+	color: #178899;
+	font-size: 125%
+}
+
+
+table   {
+    width: auto;
+}
+
+th  {
+    height: 30%;
+}
+
