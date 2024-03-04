@@ -1,8 +1,13 @@
 body    {
-	background-color: #F5DEB3;
+	background-color: #c0f5b3;
 	color: black;
 	font-size: small;
 	font-family: Georgia, "Tretbuchet MS", Veranda, sans-seif;
+}
+
+div {
+    display: flex;
+    justify-content: center;
 }
 
 
