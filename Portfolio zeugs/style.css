@@ -10,6 +10,10 @@ div {
     justify-content: center;
 }
 
+.divordnung {
+    display: flex;
+    justify-content: center;
+}
 
 ol  {
     font-size: 150%;
