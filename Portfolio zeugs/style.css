@@ -5,47 +5,38 @@ body    {
 	font-family: Georgia, "Tretbuchet MS", Veranda, sans-seif;
 }
 
-.center {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
+
+ol  {
+    font-size: 150%;
+    text-align: left;
 }
 
 
 h1, em  {
 	font-weight: bold;
 	font-style: initial;
+    text-align: center;
 }
-
-
 h1  {
 	font-size: 300%;
 }
-
-
 h2  {
     font-size: 150%;
 }
-
-
 h3  {
     font-size: 200%;
+    text-align: center;
 }
 
 
 p   {
     font-size: 150%;
+    text-align: center;
 }
 
 
 em  {
 	color: blue;
-}
-
-
-ul em   {
-	color: red;
 }
 
 
