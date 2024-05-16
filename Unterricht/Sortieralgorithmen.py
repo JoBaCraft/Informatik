@@ -9,9 +9,12 @@ def selectionsort(list):
             if list[j] < list[min_index]:
                 min_index = j
         list[i], list[min_index] = list[min_index], list[i]
-    print(list)
+    print(f'''
+Genutzter Algorithmus: Selectionsort
+Sortierte Liste: {list}
+''')
     
-def insertionsort(list):
+def insertsort(list):
     size = len(list)
     if size <= 1:
         return
@@ -22,7 +25,10 @@ def insertionsort(list):
             list[j+1] = list[j]
             j-= 1
         list[j+1] = key
-    print(list)
+    print(f'''
+Genutzter Algorithmus: Insertsort
+Sortierte Liste: {list}
+''')
     
 def bubblesort(list):
     sortiert = False
@@ -34,29 +40,30 @@ def bubblesort(list):
                 swap(list,i,i+1)
                 sortiert = False
             i += 1
-    print(list)
+    print(f'''
+Genutzter Algorithmus: Bubblesort
+Sortierte Liste: {list}
+''')
     
 list = []
 listsize = int(input('Laenge der Liste: '))
-
 while len(list) < listsize:
     Zahl = int(input('Zahl fuer die Liste: '))
     list.append(Zahl)
 
 auswahl = int(input('''
 Selectionsort: 1
-Insertionsort: 2
+Insertsort: 2
 Bubblesort: 3
 
-
-                        '''))
+'''))
     
 match auswahl:
     case 1:
         selectionsort(list)
     
     case 2:
-        insertionsort(list)
+        insertsort(list)
         
     case 3:
         bubblesort(list)
