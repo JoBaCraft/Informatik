@@ -4,7 +4,7 @@ def swap(list,i,j):
 def selectionsort(list):
     size = len(list)
     for i in range(size):
-        min_index = 1
+        min_index = i
         for j in range(i + 1, size):
             if list[j] < list[min_index]:
                 min_index = j
