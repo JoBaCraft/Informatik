@@ -78,6 +78,3 @@ match auswahl:
         
     case 3:
         bubblesort(list)
-        
-        
-        
