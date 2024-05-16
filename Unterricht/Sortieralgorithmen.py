@@ -46,9 +46,20 @@ Sortierte Liste: {list}
 ''')
     
 list = []
-listsize = int(input('Laenge der Liste: '))
+listsize = False
+while listsize is False:
+    try:
+        listsize = int(input('Laenge der Liste: '))
+    except ValueError:
+        print('Bitte nur ganze Zahlen!')
+
 while len(list) < listsize:
-    Zahl = int(input('Zahl fuer die Liste: '))
+    Zahl = False
+    while Zahl is False:
+        try:
+            Zahl = float(input('Zahl fuer die Liste: '))
+        except ValueError:
+            print('Bitte nur Zahlen!')
     list.append(Zahl)
 
 auswahl = int(input('''
