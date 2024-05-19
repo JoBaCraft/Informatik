@@ -62,11 +62,17 @@ while len(list) < listsize:
             print('Bitte nur Zahlen!')
     list.append(Zahl)
 
-auswahl = int(input('''
+auswahl = False
+while auswahl is False:
+    try:
+        auswahl = int(input('''
 Selectionsort: 1
 Insertsort: 2
 Bubblesort: 3
 '''))
+    except ValueError:
+        print('Bitte nur Zahlen!')
+print('')
     
 match auswahl:
     case 1:
