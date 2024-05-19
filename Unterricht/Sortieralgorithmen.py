@@ -66,15 +66,12 @@ auswahl = int(input('''
 Selectionsort: 1
 Insertsort: 2
 Bubblesort: 3
-
 '''))
     
 match auswahl:
     case 1:
         selectionsort(list)
-    
     case 2:
         insertsort(list)
-        
     case 3:
         bubblesort(list)
