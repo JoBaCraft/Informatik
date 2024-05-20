@@ -2,13 +2,12 @@ def binarysearch(list, gesucht):
     low = 0
     high = len(list) - 1
     gefunden = False
-    while low < high:
+    while low < high and not gefunden:
         mid = (low+high) // 2
         midValue = list[mid]
         if midValue == gesucht:
             gefunden = True
             print('Deine Zahl ist vorhanden.')
-            break
         elif midValue < gesucht:
             low = mid + 1
         else:
