@@ -20,7 +20,7 @@ while o < 1:
                 if m == "JA":
                     am = input("Wie oft? ")
                     am = am.replace(" ", "")
-                    a = a + am
+                    a = int(a) + int(am)
                     l.append(hz)
                     l.insert(-1, a)
                     print(l)
