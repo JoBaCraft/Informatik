@@ -86,3 +86,12 @@ match auswahl:
         bubblesort(list)
     case _:
         print('Zahl (1-3)!!!!!!')
+        
+#if auswahl == 1:
+#    selectionsort(list)
+#elif auswahl == 2:
+#    insertsort(list)
+#elif auswahl == 3:
+#    bubblesort(list)  
+#else:
+#    print('Zahl (1-3)!!!!!!')

@@ -43,10 +43,17 @@ Binarysearch: 2
         print('Bitte nur Zahlen!')
 print('')
 
-match auswahl:
-    case 1:
-        linearsearch(list, gesuchtezahl)
-    case 2:
-        binarysearch(list, gesuchtezahl)
-    case _: 
-        print('Zahl (1-2)!!!!!!!')
+if not auswahl - 1:
+    linearsearch(list, gesuchtezahl)
+    print('linear')
+else:
+    binarysearch(list, gesuchtezahl)
+    print('binary')
+    
+#match auswahl:
+#    case 1:
+#        linearsearch(list, gesuchtezahl)
+#    case 2:
+#        binarysearch(list, gesuchtezahl)
+#    case _: 
+#        print('Zahl (1-2)!!!!!!!')
