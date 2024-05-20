@@ -48,3 +48,5 @@ match auswahl:
         linearsearch(list, gesuchtezahl)
     case 2:
         binarysearch(list, gesuchtezahl)
+    case _: 
+        print('Zahl (1-2)!!!!!!!')

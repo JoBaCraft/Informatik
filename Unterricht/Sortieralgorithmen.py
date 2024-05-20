@@ -1,3 +1,6 @@
+from email.policy import default
+
+
 def swap(list,i,j):
     list[i], list[j] = list[j], list[i]
     
@@ -81,3 +84,5 @@ match auswahl:
         insertsort(list)
     case 3:
         bubblesort(list)
+    case _:
+        print('Zahl (1-3)!!!!!!')
