@@ -1,4 +1,4 @@
-def quicksort(list):
+def quicksort(list) -> list[int]:
     if len(list) <= 1:
         return list  # Wenn Liste nur 1 Element oder weniger hat wird sie ausgegeben, da sie schon sortiert ist
     else:
@@ -7,5 +7,6 @@ def quicksort(list):
         right = [x for x in list[1:] if x >= pivot] # Elemente >= pivot werden in neue Liste (right) eingefuegt
         return quicksort(left) + [pivot] + quicksort(right) # Rekursive wdh. mit Teil-Listen bis alles sortiert ist
 
-
-list = []
+list = [1,6,3,5,8,9,2,4,7,10]
+sorted_list = quicksort(list)
+print(sorted_list)
