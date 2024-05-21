@@ -35,11 +35,10 @@ def zeigeSpielersicht(feld):
     Zahlen = [" "]
 
     while AnzahlZahlen < gewuenschteFeldGroesse:
-        Zahlen.append(" ")
         Zahlen.append(Zahl)  # type: ignore
         Zahl += 1
         AnzahlZahlen += 1
-    print(*Zahlen, sep="")  # Schönes Ausgeben der Listen
+    print(*Zahlen, sep=" ")  # Schönes Ausgeben der Listen
 
     while i < gewuenschteFeldGroesse:
         j = 0
@@ -49,8 +48,8 @@ def zeigeSpielersicht(feld):
                 zeilentext += '~ '
             else:
                 zeilentext += feld[i][j] + ' '
-            j = j + 1
-        i = i + 1
+            j += 1
+        i += 1
         print(zeilentext)
     print('')  # Leerzeile nach dem Feld
 
@@ -63,11 +62,10 @@ def zeigeComputersicht(feld):
     Zahlen = [" "]
 
     while AnzahlZahlen < gewuenschteFeldGroesse:
-        Zahlen.append(" ")
-        Zahlen.append(Zahl) # type: ignore
+        Zahlen.append(Zahl)  # type: ignore
         Zahl += 1
         AnzahlZahlen += 1
-    print(*Zahlen, sep="")  # Schönes Ausgeben der Listen
+    print(*Zahlen, sep=" ")  # Schönes Ausgeben der Listen
 
     while i < gewuenschteFeldGroesse:
         j = 0
@@ -77,8 +75,8 @@ def zeigeComputersicht(feld):
                 zeilentext += 'A '
             else:
                 zeilentext += feld[i][j] + ' '
-            j = j + 1
-        i = i + 1
+            j += 1
+        i += 1
         print(zeilentext)
     print('')  # Leerzeile nach dem Feld
 
