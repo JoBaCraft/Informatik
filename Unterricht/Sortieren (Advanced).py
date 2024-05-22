@@ -6,6 +6,7 @@ def quicksort(list) -> list[int]:
         left = [x for x in list[1:] if x < pivot]  # Elemente < pivot werden in neue Liste (left) eingefuegt
         right = [x for x in list[1:] if x >= pivot] # Elemente >= pivot werden in neue Liste (right) eingefuegt
         return quicksort(left) + [pivot] + quicksort(right) # Rekursive wdh. mit Teil-Listen bis alles sortiert ist
+                                                            # (zusammenfuegen der Teillisten mit pivot.)
 
 list = [1,6,3,5,8,9,2,4,7,10]
 sorted_list = quicksort(list)
