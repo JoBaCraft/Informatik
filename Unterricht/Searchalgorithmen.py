@@ -26,14 +26,14 @@ def linearsearch(list, gesucht):
 
 list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 gesuchtezahl = False
-while gesuchtezahl is False:
+while not gesuchtezahl:
     try:
         gesuchtezahl = int(input('Zu suchende Zahl: '))
     except ValueError:
         print('Bitte nur ganze Zahlen!')
 
 auswahl = False
-while auswahl is False:
+while not auswahl:
     try:
         auswahl = int(input('''
 Linearsearch: 1

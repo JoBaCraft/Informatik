@@ -1,6 +1,3 @@
-from email.policy import default
-
-
 def swap(list,i,j):
     list[i], list[j] = list[j], list[i]
     
@@ -50,7 +47,7 @@ Sortierte Liste: {list}
     
 list = []
 listsize = False
-while listsize is False:
+while not listsize:
     try:
         listsize = int(input('Laenge der Liste: '))
     except ValueError:
@@ -58,7 +55,7 @@ while listsize is False:
 
 while len(list) < listsize:
     Zahl = False
-    while Zahl is False:
+    while not Zahl:
         try:
             Zahl = float(input('Zahl fuer die Liste: '))
         except ValueError:
@@ -66,7 +63,7 @@ while len(list) < listsize:
     list.append(Zahl)
 
 auswahl = False
-while auswahl is False:
+while not auswahl:
     try:
         auswahl = int(input('''
 Selectionsort: 1
