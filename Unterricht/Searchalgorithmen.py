@@ -1,4 +1,4 @@
-def binarysearch(list, gesucht):
+def binarysearch(list, gesucht) -> None:
     low = 0
     high = len(list) - 1
     gefunden = False
@@ -15,7 +15,7 @@ def binarysearch(list, gesucht):
     if not gefunden:
         print('Zahl nicht da.')
 
-def linearsearch(list, gesucht):
+def linearsearch(list, gesucht) -> None:
     gefunden = False
     for i in range(0, len(list)):
         if list[i] == gesucht:
