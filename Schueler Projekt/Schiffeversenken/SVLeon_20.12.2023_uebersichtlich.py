@@ -6,7 +6,7 @@ FeldGroesse = 0
 ZeilenGroesse = 0
 zeile = []
 feld = []
-
+AnzahlSFelder = 0
 
 
 #Das Zeug ausm Testmodul
