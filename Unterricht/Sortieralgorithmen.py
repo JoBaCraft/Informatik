@@ -1,7 +1,7 @@
 def swap(list,i,j):
     list[i], list[j] = list[j], list[i]
     
-def selectionsort(list):
+def selectionsort(list) -> None:
     size = len(list)
     for i in range(size):
         min_index = i
@@ -14,7 +14,7 @@ Genutzter Algorithmus: Selectionsort
 Sortierte Liste: {list}
 ''')
     
-def insertsort(list):
+def insertsort(list) -> None:
     size = len(list)
     if size <= 1:
         return
@@ -30,7 +30,7 @@ Genutzter Algorithmus: Insertsort
 Sortierte Liste: {list}
 ''')
     
-def bubblesort(list):
+def bubblesort(list) -> None:
     sortiert = False
     while not sortiert:
         sortiert = True
