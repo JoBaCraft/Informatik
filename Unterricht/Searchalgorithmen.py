@@ -43,14 +43,14 @@ Binarysearch: 2
         print('Bitte nur Zahlen!')
 print('')
 
-if not auswahl - 1:
+if not auswahl - 1:                 #python version 3.9-
     linearsearch(list, gesuchtezahl)
     print('linear')
 else:
     binarysearch(list, gesuchtezahl)
     print('binary')
     
-#match auswahl:
+#match auswahl:             #python version 3.10+
 #    case 1:
 #        linearsearch(list, gesuchtezahl)
 #    case 2:

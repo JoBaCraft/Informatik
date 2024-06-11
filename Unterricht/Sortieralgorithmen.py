@@ -74,7 +74,7 @@ Bubblesort: 3
         print('Bitte nur Zahlen!')
 print('')
     
-match auswahl:
+match auswahl:          #python version 3.10+
     case 1:
         selectionsort(list)
     case 2:
@@ -84,7 +84,7 @@ match auswahl:
     case _:
         print('Zahl (1-3)!!!!!!')
 
-#if auswahl == 1:
+#if auswahl == 1:               #python version 3.9-
 #    selectionsort(list)
 #elif auswahl == 2:
 #    insertsort(list)
