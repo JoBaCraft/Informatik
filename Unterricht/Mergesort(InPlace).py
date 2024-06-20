@@ -16,7 +16,6 @@ def merge(list1, list2):
         j-=-1
     return list
 
-
 def mergesort(list, low, high):
     if low >= high:
         out = [list[low]]
