@@ -1,10 +1,10 @@
 def merge(array, low, mid, high):
     subArray1 = mid - low + 1
     subArray2 = high - mid
-    
+    # Createing temp arrays
     leftArray = [0] * subArray1
     rightArray = [0] * subArray2
-    
+    # Copy Data to temp arrays
     for i in range(subArray1):
         leftArray[i] = array[low + i]
     for j in range(subArray2):
@@ -12,7 +12,7 @@ def merge(array, low, mid, high):
         
     IndexSubArray1 = IndexSubArray2 = 0
     IndexMergedArray = low
-    
+    # Merge temp arrays back into array
     while IndexSubArray1 < subArray1 and IndexSubArray2 < subArray2:
         if leftArray[IndexSubArray1] <= rightArray[IndexSubArray2]:
             array[IndexMergedArray] = leftArray[IndexSubArray1]
@@ -21,17 +21,16 @@ def merge(array, low, mid, high):
             array[IndexMergedArray] = rightArray[IndexSubArray2]
             IndexSubArray2 += 1
         IndexMergedArray += 1
-    
+    # Copy remaining Elements from left temp array
     while IndexSubArray1 < subArray1:
         array[IndexMergedArray] = leftArray[IndexSubArray1]
         IndexSubArray1 += 1
         IndexMergedArray += 1
-        
+    # Copy remaining Elements from right array
     while IndexSubArray2 < subArray2:
         array[IndexMergedArray] = rightArray[IndexSubArray2]
         IndexSubArray2 += 1
         IndexMergedArray += 1
-
 
 def mergesort(array, low, high):
     if low >= high:
